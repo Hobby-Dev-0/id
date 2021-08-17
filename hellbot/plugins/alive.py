@@ -13,7 +13,7 @@ speedo_pic = Config.ALIVE_PIC or "https://telegra.ph/file/ea9e11f7c9db21c1b8d5e.
 alive_c = f"__**🔥🔥Speedo ɨs օռʟɨռɛ🔥🔥**__\n\n"
 alive_c += f"__↼ Øwñêr ⇀__ : 『 {speedo_mention} 』\n\n"
 alive_c += f"•♦• Telethon     :  `{tel_ver}` \n"
-alive_c += f"•♦• Hêllẞø†       :  __**{speedo_ver}**__\n"
+alive_c += f"•♦• speedøbøt       :  __**{speedo_ver}**__\n"
 alive_c += f"•♦• Sudo            :  `{is_sudo}`\n"
 alive_c += f"•♦• Channel      :  {speedo_channel}\n"
 
@@ -34,7 +34,7 @@ msg = f"""
 {Config.ALIVE_MSG}
 **🏅 𝙱𝚘𝚝 𝚂𝚝𝚊𝚝𝚞𝚜 🏅**
 **Telethon :**  `{tel_ver}`
-**Hêllẞø†  :**  **{speedo_ver}**
+**speedøbøt  :**  **{speedo_ver}**
 **Abuse    :**  **{abuse_m}**
 **Sudo      :**  **{is_sudo}**
 """

@@ -92,7 +92,7 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     await event.edit(
-        "✅ Successfully updated Hêllẞø†!\n\nBot is restarting please wait for a minute."
+        "✅ Successfully updated speedøbøt!\n\nBot is restarting please wait for a minute."
     )
     args = [sys.executable, "-m", "Speedo"]
     os.execle(sys.executable, *args, os.environ)
@@ -150,7 +150,7 @@ async def upstream(event):
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if changelog == "" and not force_update:
         await event.edit(
-            "\n**😎 Hêllẞø† is UP-TO-DATE.**"
+            "\n**😎 speedøbøt is UP-TO-DATE.**"
             f"\n\n**Version :**  {speedo_ver}"
             f"\n**Owner :**  {speedo_mention}"
             f"\n**Git Branch :**  {UPSTREAM_REPO_BRANCH}\n"
@@ -159,11 +159,11 @@ async def upstream(event):
     if conf == "" and not force_update:
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
-        return await event.respond(f"🌚 Do `{hl}update build` to update your **Hêllẞø†** !!")
+        return await event.respond(f"🌚 Do `{hl}update build` to update your **speedøbøt** !!")
 
     if force_update:
         await event.edit(
-            "`Force-Updating Hêllẞø†. Please wait...`"
+            "`Force-Updating speedøbøt. Please wait...`"
         )
     if conf == "now":
         await event.edit("`Update In Progress! Please Wait....`")
@@ -216,7 +216,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
             await asyncio.sleep(5)
             return await event.delete()
-        await event.edit(f"**Your Hêllẞø† Is UpToDate**\n\n**Version :**  __{speedo_ver}__\n**Oɯɳҽɾ :**  {speedo_mention}")
+        await event.edit(f"**Your speedøbøt Is UpToDate**\n\n**Version :**  __{speedo_ver}__\n**Oɯɳҽɾ :**  {speedo_mention}")
     else:
         await event.edit("**Please set up**  `HEROKU_API_KEY`  **from heroku to update!**")
     return
@@ -256,18 +256,18 @@ async def upstream(event):
     ac_br = repo.active_branch.name
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
-    await event.edit(f"**Hêllẞø† Docker Build In Progress... Type** `{hl}ping`  **after 5 mins to check if Bot is working!**")
+    await event.edit(f"**speedøbøt Docker Build In Progress... Type** `{hl}ping`  **after 5 mins to check if Bot is working!**")
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
 CmdHelp("update").add_command(
   "update", None, "Checks if any new update is available."
 ).add_command(
-  "update now", None, "Soft-Update Your Hêllẞø†. Basically if you restart dyno it will go back to previous deploy."
+  "update now", None, "Soft-Update Your speedøbøt. Basically if you restart dyno it will go back to previous deploy."
 ).add_command(
-  "update build", None, "Hard-Update Your Hêllẞø†. This won't take you back to your previous deploy. This will be triggered even if there is no changelog."
+  "update build", None, "Hard-Update Your speedøbøt. This won't take you back to your previous deploy. This will be triggered even if there is no changelog."
 ).add_info(
-  "Hêllẞø† Updater."
+  "speedøbøt Updater."
 ).add_warning(
   "✅ Harmless Module."
 ).add()

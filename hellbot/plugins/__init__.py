@@ -50,9 +50,9 @@ if "@" in my_group:
     my_group = my_group.replace("@", "")
 
 chnl_link = "https://t.me/its_Speedo"
-speedo_channel = f"[†hê Hêllẞø†]({chnl_link})"
+speedo_channel = f"[†hê speedøbøt]({chnl_link})"
 grp_link = "https://t.me/HellBot_Chat"
-speedo_grp = f"[Hêllẞø† Group]({grp_link})"
+speedo_grp = f"[speedøbøt Group]({grp_link})"
 
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**
   {mention} :  To mention the user

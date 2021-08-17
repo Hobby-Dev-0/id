@@ -87,7 +87,7 @@ async def speedo_is_on():
             await bot.send_file(
                 Config.LOGGER_ID,
                 HELL_PIC,
-                caption=f"#START \n\nDeployed Hêllẞø† Successfully\n\n**Hêllẞø† - {speedover}**\n\nType `{hl}ping` or `{hl}alive` to check! \n\nJoin [Hêllẞø† Channel](t.me/Its_HellBot) for Updates & [Hêllẞø† Chat](t.me/Speedo_chat) for any query regarding Hêllẞø†",
+                caption=f"#START \n\nDeployed speedøbøt Successfully\n\n**speedøbøt - {speedover}**\n\nType `{hl}ping` or `{hl}alive` to check! \n\nJoin [speedøbøt Channel](t.me/Its_HellBot) for Updates & [speedøbøt Chat](t.me/Speedo_chat) for any query regarding speedøbøt",
             )
     except Exception as e:
         LOGS.info(str(e))

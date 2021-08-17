@@ -160,9 +160,9 @@ async def load(event):
         )
 
 CmdHelp("core").add_command(
-  "install", "<reply to a .py file>", "Installs the replied python file if suitable to Hêllẞø†'s codes."
+  "install", "<reply to a .py file>", "Installs the replied python file if suitable to speedøbøt's codes."
 ).add_command(
-  "uninstall", "<plugin name>", "Uninstalls the given plugin from Hêllẞø†. To get that again do .restart", "uninstall alive"
+  "uninstall", "<plugin name>", "Uninstalls the given plugin from speedøbøt. To get that again do .restart", "uninstall alive"
 ).add_command(
   "load", "<plugin name>", "Loades the unloaded plugin to your userbot", "load alive"
 ).add_command(

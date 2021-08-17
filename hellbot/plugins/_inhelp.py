@@ -41,7 +41,7 @@ mssge = (
 USER_BOT_WARN_ZERO = "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blocked and Reported**"
 
 HELL_FIRST = (
-    "**🔥 Hêllẞø† Prîvã†é Sêçürïty Prø†öçõl 🔥**\n\nThis is to inform you that "
+    "**🔥 speedøbøt Prîvã†é Sêçürïty Prø†öçõl 🔥**\n\nThis is to inform you that "
     "{} is currently unavailable.\nThis is an automated message.\n\n"
     "{}\n\n**Please Choose Why You Are Here!!**"
 )
@@ -52,7 +52,7 @@ alive_txt = """
 **🏅 𝙱𝚘𝚝 𝚂𝚝𝚊𝚝𝚞𝚜 🏅**
 
 **Telethon :**  `{}`
-**Hêllẞø†  :**  **{}**
+**speedøbøt  :**  **{}**
 **Abuse    :**  **{}**
 **Sudo      :**  **{}**
 """
@@ -217,7 +217,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         else:
             result = builder.article(
                 "@Its_HellBot",
-                text="""**Hey! This is [Hêllẞø†](https://t.me/its_Speedo) \nYou can know more about me from the links given below 👇**""",
+                text="""**Hey! This is [speedøbøt](https://t.me/its_Speedo) \nYou can know more about me from the links given below 👇**""",
                 buttons=[
                     [
                         custom.Button.url("🔥 CHANNEL 🔥", "https://t.me/Its_HellBot"),
@@ -246,7 +246,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"🔰 This is Hêllẞø† PM Security for {speedo_mention} to keep away unwanted retards from spamming PM..."
+                f"🔰 This is speedøbøt PM Security for {speedo_mention} to keep away unwanted retards from spamming PM..."
             )
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"req")))
@@ -342,7 +342,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     link_preview=False,
                 )
             else:
-                reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © Hêllẞø† ™"
+                reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © speedøbøt ™"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         
 
@@ -350,9 +350,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             veriler = custom.Button.inline(f"{speedo_emoji} Re-Open Menu {speedo_emoji}", data="reopen")
-            await event.edit(f"**⚜️ Hêllẞø† Mêñû Prõvîdêr ìs ñôw Çlösëd ⚜️**\n\n**Bot Of :**  {speedo_mention}\n\n        [©️ Hêllẞø† ™️]({chnl_link})", buttons=veriler, link_preview=False)
+            await event.edit(f"**⚜️ speedøbøt Mêñû Prõvîdêr ìs ñôw Çlösëd ⚜️**\n\n**Bot Of :**  {speedo_mention}\n\n        [©️ speedøbøt ™️]({chnl_link})", buttons=veriler, link_preview=False)
         else:
-            reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © Hêllẞø† ™"
+            reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © speedøbøt ™"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
    
 
@@ -372,7 +372,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             return await event.answer(
-                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © Hêllẞø† ™",
+                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © speedøbøt ™",
                 cache_time=0,
                 alert=True,
             )
@@ -406,7 +406,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             return await event.answer(
-                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © Hêllẞø† ™",
+                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © speedøbøt ™",
                 cache_time=0,
                 alert=True,
             )
@@ -447,7 +447,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             return await event.answer(
-                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © Hêllẞø† ™",
+                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © speedøbøt ™",
                 cache_time=0,
                 alert=True,
             )
