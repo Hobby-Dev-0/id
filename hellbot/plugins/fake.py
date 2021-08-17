@@ -16,14 +16,14 @@ async def _(event):
     response = requests.get(url)
     await eor(event, "`Creating a fake face...`")
     if response.status_code == 200:
-      with open("HELLBOT.jpg", 'wb') as f:
+      with open("speedøbøt.jpg", 'wb') as f:
         f.write(response.content)
     
     captin = f"Fake Image By {speedo_mention}"
-    fole = "HELLBOT.jpg"
+    fole = "speedøbøt.jpg"
     await bot.send_file(event.chat_id, fole, caption=captin)
     await event.delete()
-    os.system("rm /root/Speedo/HELLBOT.jpg ")
+    os.system("rm /root/Speedo/speedøbøt.jpg ")
 
 
 @bot.on(Speedo_cmd(pattern="fake ?(.*)"))

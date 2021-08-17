@@ -79,7 +79,7 @@ async def variable(speedo):
         capn = "Saved in LOGGER_ID !!"
         try:
             variable = speedo.pattern_match.group(2).split()[0]
-            if variable in ("HELLBOT_SESSION", "BOT_TOKEN", "HEROKU_API_KEY"):
+            if variable in ("speedøbøt_SESSION", "BOT_TOKEN", "HEROKU_API_KEY"):
                 if Config.ABUSE == "ON":
                     await bot.send_file(speedo.chat_id, cjb, caption=cap)
                     await event.delete()

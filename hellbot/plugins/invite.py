@@ -67,7 +67,7 @@ async def get_users(event):
         return await speedo.edit("Restricted to invite users from there.")
     elif he_ll == "@Speedo_chat":
         return await speedo.edit("Restricted to invite users from there.")
-    elif he_ll == "@HELLBOT_CHAT":
+    elif he_ll == "@speedøbøt_CHAT":
         return await speedo.edit("Restricted to invite users from there.")
     kraken = await get_chatinfo(event)
     chat = await event.get_chat()
