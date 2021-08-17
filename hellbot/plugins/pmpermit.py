@@ -16,7 +16,7 @@ PM_ON_OFF = Config.PM_PERMIT
 CSTM_PMP = Config.CUSTOM_PMPERMIT or "**You Have Trespassed To My Master's PM!\nThis Is Illegal And Regarded As Crime.**"
 HELL_ZERO = "Go get some sleep retard. \n\n**Blocked !!**"
 HELL_FIRST = (
-    "**🔥 speedøbøt Prîvã†é Sêçürïty Prø†öçõl 🔥**\n\nThis is to inform you that "
+    "**🔥 SPEEDOBOT Prîvã†é Sêçürïty Prø†öçõl 🔥**\n\nThis is to inform you that "
     "{} is currently unavailable.\nThis is an automated message.\n\n"
     "{}\n\n**Please Choose Why You Are Here!!**".format(speedo_mention, CSTM_PMP)
 )
@@ -283,7 +283,7 @@ CmdHelp("pm_permit").add_command(
 ).add_command(
   "block", "<in pm>", "Blocks the user"
 ).add_command(
-  "listapproved", None, "Sends the list of all users approved by speedøbøt"
+  "listapproved", None, "Sends the list of all users approved by SPEEDOBOT"
 ).add_info(
   "PM SECURITY"
 ).add_warning(

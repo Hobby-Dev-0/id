@@ -1,4 +1,4 @@
-# IF YOU ARE HOSTING speedøbøt ON OTHER VPS OR LOCALLY RATHER THAN HEROKU
+# IF YOU ARE HOSTING SPEEDOBOT ON OTHER VPS OR LOCALLY RATHER THAN HEROKU
 # THEN DON'T EDIT THIS FILE.
 # GO AND EDIT ex_config.py AND RENAME IT TO config.py
 # AND FILL THE REQUIRED VARS THERE.
@@ -85,7 +85,7 @@ class Config(object):
     REMOVE_BG_API = os.environ.get("REMOVE_BG_API", None)
     SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
     STICKER_PACKNAME = os.environ.get("STICKER_PACKNAME", None)
-    speedøbøt_SESSION = os.environ.get("speedøbøt_SESSION", None)
+    SPEEDOBOT_SESSION = os.environ.get("SPEEDOBOT_SESSION", None)
     SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"\.")
     SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
     TAG_LOGGER = os.environ.get("TAG_LOGGER", None)

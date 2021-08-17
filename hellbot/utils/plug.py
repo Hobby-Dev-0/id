@@ -74,7 +74,7 @@ def load_module(shortname):
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["Speedo.plugins." + shortname] = mod
-        LOGS.info("⚡ speedøbøt ⚡ - Successfully Imported " + shortname)
+        LOGS.info("⚡ SPEEDOBOT ⚡ - Successfully Imported " + shortname)
 
 
 # remove plugins

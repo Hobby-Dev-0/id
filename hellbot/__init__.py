@@ -39,8 +39,8 @@ except Exception:
     HEROKU_APP = None
 
 
-if Config.speedøbøt_SESSION:
-    session_name = str(Config.speedøbøt_SESSION)
+if Config.SPEEDOBOT_SESSION:
+    session_name = str(Config.SPEEDOBOT_SESSION)
     try:
         if session_name.endswith("="):
             bot = TelegramClient(
@@ -49,9 +49,9 @@ if Config.speedøbøt_SESSION:
         else:
             bot = TelegramClient(
                 "BOT_TOKEN", api_id=Config.APP_ID, api_hash=Config.API_HASH
-            ).start(bot_token=Config.speedøbøt_SESSION)
+            ).start(bot_token=Config.SPEEDOBOT_SESSION)
     except Exception as e:
-        LOGS.warn(f"speedøbøt_SESSION - {str(e)}")
+        LOGS.warn(f"SPEEDOBOT_SESSION - {str(e)}")
         sys.exit()
 else:
     session_name = "startup"

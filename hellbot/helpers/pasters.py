@@ -41,7 +41,7 @@ async def pasty(message, extension=None):
 
 async def telegraph_paste(page_title, temxt):
     cl1ent = TelegraphPoster(use_api=True)
-    auth = "[ †he speedøbøt ]"
+    auth = "[ †he SPEEDOBOT ]"
     cl1ent.create_api_token(auth)
     post_page = cl1ent.post(
         title=page_title,

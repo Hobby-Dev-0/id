@@ -18,7 +18,7 @@ async def pong(speedo):
 
 
 CmdHelp("ping").add_command(
-  "ping", None, "Checks the ping speed of your speedøbøt"
+  "ping", None, "Checks the ping speed of your SPEEDOBOT"
 ).add_warning(
   "✅ Harmless Module"
 ).add()

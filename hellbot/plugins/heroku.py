@@ -44,7 +44,7 @@ async def re(speedo):
     if HEROKU_API_KEY:
         await restart(event)
     else:
-        await event.edit("Please Set Your `HEROKU_API_KEY` to restart speedøbøt")
+        await event.edit("Please Set Your `HEROKU_API_KEY` to restart SPEEDOBOT")
 
 
 @bot.on(Speedo_cmd(pattern="shutdown$"))
@@ -54,7 +54,7 @@ async def down(speedo):
         return
     event = await eor(speedo, "`Turing Off Heroku Dynos...`")
     await asyncio.sleep(2)
-    await event.edit("**[ ⚠️ ]** \n**speedøbøt Dynos is now turned off. Manually turn it on to start again.**")
+    await event.edit("**[ ⚠️ ]** \n**SPEEDOBOT Dynos is now turned off. Manually turn it on to start again.**")
     if HEROKU_APP is not None:
         HEROKU_APP.process_formation()["worker"].scale(0)
     else:
@@ -79,7 +79,7 @@ async def variable(speedo):
         capn = "Saved in LOGGER_ID !!"
         try:
             variable = speedo.pattern_match.group(2).split()[0]
-            if variable in ("speedøbøt_SESSION", "BOT_TOKEN", "HEROKU_API_KEY"):
+            if variable in ("SPEEDOBOT_SESSION", "BOT_TOKEN", "HEROKU_API_KEY"):
                 if Config.ABUSE == "ON":
                     await bot.send_file(speedo.chat_id, cjb, caption=cap)
                     await event.delete()

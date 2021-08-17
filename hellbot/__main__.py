@@ -21,7 +21,7 @@ async def speedo_bot(bot_token):
         bot.me = await bot.get_me()
         bot.uid = telethon.utils.get_peer_id(bot.me)
     except Exception as e:
-        LOGS.error(f"speedøbøt_SESSION - {str(e)}")
+        LOGS.error(f"SPEEDOBOT_SESSION - {str(e)}")
         sys.exit()
 
 
@@ -87,7 +87,7 @@ async def speedo_is_on():
             await bot.send_file(
                 Config.LOGGER_ID,
                 HELL_PIC,
-                caption=f"#START \n\nDeployed speedøbøt Successfully\n\n**speedøbøt - {speedover}**\n\nType `{hl}ping` or `{hl}alive` to check! \n\nJoin [speedøbøt Channel](t.me/Its_HellBot) for Updates & [speedøbøt Chat](t.me/Speedo_chat) for any query regarding speedøbøt",
+                caption=f"#START \n\nDeployed SPEEDOBOT Successfully\n\n**SPEEDOBOT - {speedover}**\n\nType `{hl}ping` or `{hl}alive` to check! \n\nJoin [SPEEDOBOT Channel](t.me/Its_HellBot) for Updates & [SPEEDOBOT Chat](t.me/Speedo_chat) for any query regarding SPEEDOBOT",
             )
     except Exception as e:
         LOGS.info(str(e))
