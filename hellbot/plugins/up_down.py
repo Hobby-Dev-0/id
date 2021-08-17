@@ -360,7 +360,7 @@ async def _(event):
             end = datetime.datetime.now()
             ms = (end - start).seconds
             await mone.edit(
-                f"**  •  Downloaded in {ms} seconds.**\n**  •  Downloaded to :- ** `{downloaded_file_name}`\n**  •  Downloaded by :-** {hell_mention}"
+                f"**  •  Downloaded in {ms} seconds.**\n**  •  Downloaded to :- ** `{downloaded_file_name}`\n**  •  Downloaded by :-** {speedo_mention}"
             )
     elif input_str:
         start = datetime.datetime.now()

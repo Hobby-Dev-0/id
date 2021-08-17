@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
 from . import *
 
 
-path = "./hellmify/"
+path = "./speedomify/"
 if not os.path.isdir(path):
     os.makedirs(path)
 
@@ -26,10 +26,10 @@ async def _(event):
     if not (_reply and (_reply.media)):
         hel_ = await eod(event, "`Can't memify this 🥴`")
         return
-    hell = await _reply.download_media()
-    if hell.endswith((".tgs")):
+    speedo = await _reply.download_media()
+    if speedo.endswith((".tgs")):
         hel_ = await eor(event, "**Memifying 🌚🌝**")
-        cmd = ["lottie_convert.py", hell, "pic.png"]
+        cmd = ["lottie_convert.py", speedo, "pic.png"]
         file = "pic.png"
         process = await asyncio.create_subprocess_exec(
             *cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
@@ -37,14 +37,14 @@ async def _(event):
         stdout, stderr = await process.communicate()
         stderr.decode().strip()
         stdout.decode().strip()
-    elif hell.endswith((".webp", ".png")):
+    elif speedo.endswith((".webp", ".png")):
         hel_ = await eor(event, "**Memifying 🌚🌝**")
-        pics = Image.open(hell)
+        pics = Image.open(speedo)
         pics.save("pic.png", format="PNG", optimize=True)
         file = "pic.png"
     else:
         hel_ = await eor(event, "**Memifying 🌚🌝**")
-        img = cv2.VideoCapture(hell)
+        img = cv2.VideoCapture(speedo)
         tal, semx = img.read()
         cv2.imwrite("pic.png", semx)
         file = "pic.png"
@@ -54,7 +54,7 @@ async def _(event):
     )
     await hel_.delete()
     try:
-        os.remove(hell)
+        os.remove(speedo)
         os.remove(file)
         os.remove(output)
     except BaseException:
@@ -69,10 +69,10 @@ async def _(event):
     if not (_reply and (_reply.media)):
         hel_ = await eod(event, "`Can't memify this 🥴`")
         return
-    hell = await _reply.download_media()
-    if hell.endswith((".tgs")):
+    speedo = await _reply.download_media()
+    if speedo.endswith((".tgs")):
         hel_ = await eor(event, "**Memifying 🌚🌝**")
-        cmd = ["lottie_convert.py", hell, "pic.png"]
+        cmd = ["lottie_convert.py", speedo, "pic.png"]
         file = "pic.png"
         process = await asyncio.create_subprocess_exec(
             *cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
@@ -80,14 +80,14 @@ async def _(event):
         stdout, stderr = await process.communicate()
         stderr.decode().strip()
         stdout.decode().strip()
-    elif hell.endswith((".webp", ".png")):
+    elif speedo.endswith((".webp", ".png")):
         hel_ = await eor(event, "**Memifying 🌚🌝**")
-        pic = Image.open(hell)
+        pic = Image.open(speedo)
         pic.save("pic.png", format="PNG", optimize=True)
         file = "pic.png"
     else:
         hel_ = await eor(event, "**Memifying 🌚🌝**")
-        img = cv2.VideoCapture(hell)
+        img = cv2.VideoCapture(speedo)
         tal, semx = img.read()
         cv2.imwrite("pic.png", semx)
         file = "pic.png"
@@ -97,7 +97,7 @@ async def _(event):
     )
     await hel_.delete()
     try:
-        os.remove(hell)
+        os.remove(speedo)
         os.remove(file)
     except BaseException:
         pass
@@ -107,8 +107,8 @@ async def _(event):
 @bot.on(Speedo_cmd(pattern="doge(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="doge(?: |$)(.*)", allow_sudo=True))
 async def nope(kraken):
-    hell = kraken.pattern_match.group(1)
-    if not hell:
+    speedo = kraken.pattern_match.group(1)
+    if not speedo:
         if kraken.is_reply:
             (await kraken.get_reply_message()).message
         else:
@@ -117,7 +117,7 @@ async def nope(kraken):
             else:
                 return await eor(kraken, "Doge need some text to make sticker.")
 
-    troll = await bot.inline_query("DogeStickerBot", f"{(deEmojify(hell))}")
+    troll = await bot.inline_query("DogeStickerBot", f"{(deEmojify(speedo))}")
     if troll:
         await kraken.delete()
         hel_ = await troll[0].click(Config.LOGGER_ID)
@@ -135,8 +135,8 @@ async def nope(kraken):
 @bot.on(Speedo_cmd(pattern="gg(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="gg(?: |$)(.*)", allow_sudo=True))
 async def nope(kraken):
-    hell = kraken.pattern_match.group(1)
-    if not hell:
+    speedo = kraken.pattern_match.group(1)
+    if not speedo:
         if kraken.is_reply:
             (await kraken.get_reply_message()).message
         else:
@@ -145,7 +145,7 @@ async def nope(kraken):
             else:
                 return await eor(kraken, "Doge need some text to make sticker.")
 
-    troll = await bot.inline_query("GooglaxBot", f"{(deEmojify(hell))}")
+    troll = await bot.inline_query("GooglaxBot", f"{(deEmojify(speedo))}")
     if troll:
         await kraken.delete()
         hel_ = await troll[0].click(Config.LOGGER_ID)
@@ -161,9 +161,9 @@ async def nope(kraken):
 
     
 CmdHelp("memify").add_command(
-  "mmf", "<reply to a img/stcr/gif> <upper text> ; <lower text>", "Memifies the replied image/gif/sticker with your text and sends output in sticker format.", "mmf <reply to a img/stcr/gif> hii ; hello"
+  "mmf", "<reply to a img/stcr/gif> <upper text> ; <lower text>", "Memifies the replied image/gif/sticker with your text and sends output in sticker format.", "mmf <reply to a img/stcr/gif> hii ; speedoo"
 ).add_command(
-  "mms", "<reply to a img/stcr/gif> <upper text> ; <lower text>", "Memifies the replied image/gif/sticker with your text and sends output in image format.", "mms <reply to a img/stcr/gif> hii ; hello"
+  "mms", "<reply to a img/stcr/gif> <upper text> ; <lower text>", "Memifies the replied image/gif/sticker with your text and sends output in image format.", "mms <reply to a img/stcr/gif> hii ; speedoo"
 ).add_command(
   "doge", "<text>", "Makes A Sticker of Doge with given text."
 ).add_command(

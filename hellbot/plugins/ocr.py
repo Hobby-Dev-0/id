@@ -14,7 +14,7 @@ def ocr_space_file(
     :param overlay: Is OCR.space overlay required in your response.
                     Defaults to False.
     :param api_key: OCR.space API key.
-                    Defaults to 'helloworld'.
+                    Defaults to 'speedooworld'.
     :param language: Language code to be used in OCR.
                     List of available language codes can be found on https://ocr.space/OCRAPI
                     Defaults to 'en'.
@@ -42,7 +42,7 @@ def ocr_space_url(url, overlay=False, api_key=Config.OCR_API, language="eng"):
     :param overlay: Is OCR.space overlay required in your response.
                     Defaults to False.
     :param api_key: OCR.space API key.
-                    Defaults to 'helloworld'.
+                    Defaults to 'speedooworld'.
     :param language: Language code to be used in OCR.
                     List of available language codes can be found on https://ocr.space/OCRAPI
                     Defaults to 'en'.
@@ -109,7 +109,7 @@ async def get_ocr_languages(event):
 async def parse_ocr_space_api(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "Processing weit...🤓")
+    speedo = await eor(event, "Processing weit...🤓")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     lang_code = event.pattern_match.group(1)
@@ -125,17 +125,17 @@ async def parse_ocr_space_api(event):
             int(test_file["ProcessingTimeInMilliseconds"]) // 1000
         )
     except Exception as e:
-        await eod(hell, "**Errors !!** \n`{}`\n**Report This to** {}\n\n`{}`".format(
-                str(e), hell_grp, json.dumps(test_file, sort_keys=True, indent=4)
+        await eod(speedo, "**Errors !!** \n`{}`\n**Report This to** {}\n\n`{}`".format(
+                str(e), speedo_grp, json.dumps(test_file, sort_keys=True, indent=4)
             )
         )
     else:
-        await hell.edit("Read Document in {} seconds. \n{}".format(
+        await speedo.edit("Read Document in {} seconds. \n{}".format(
                 ProcessingTimeInMilliseconds, ParsedText
             )
         )
     os.remove(downloaded_file_name)
-    await hell.edit(ParsedText)
+    await speedo.edit(ParsedText)
 
 
 CmdHelp("ocr").add_command(

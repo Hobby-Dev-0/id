@@ -93,7 +93,7 @@ async def on_view_blacklist(event):
 
 
 CmdHelp("blacklist").add_command(
-  "addblacklist", "<word>/<words>", "The given word or words will be added to blacklist in that specific chat if any user sends then the message gets deleted.\n\nNote :- If you are adding more than one word at time via this, then remember that new word must be given in a new line that is not [hi hello]. It must be as [hi \n hello]"
+  "addblacklist", "<word>/<words>", "The given word or words will be added to blacklist in that specific chat if any user sends then the message gets deleted.\n\nNote :- If you are adding more than one word at time via this, then remember that new word must be given in a new line that is not [hi speedoo]. It must be as [hi \n speedoo]"
 ).add_command(
   "rmblacklist", "<word>/<words>", "The given word or words will be removed from blacklist in that specific chat"
 ).add_command(

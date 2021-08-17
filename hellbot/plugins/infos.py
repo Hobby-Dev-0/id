@@ -49,7 +49,7 @@ async def _(event):
     if reply_message.sender.bot:
         await eod(event, "Reply to actual users message.")
         return
-    hell = await eor(event, "recognizeing this media")
+    speedo = await eor(event, "recognizeing this media")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -59,15 +59,15 @@ async def _(event):
             second = await response
         except YouBlockedUserError:
             await event.reply("unblock @Rekognition_Bot and try again")
-            await hell.delete()
+            await speedo.delete()
             return
         if second.text.startswith("See next message."):
             response = conv.wait_event(
                 events.NewMessage(incoming=True, from_users=461083923)
             )
             third = await response
-            hell = third.message.message
-            await eor(event, hell)
+            speedo = third.message.message
+            await eor(event, speedo)
             await bot.delete_messages(
             	conv.chat_id, [first.id, second.id, third.id]
             )
@@ -215,14 +215,14 @@ async def get_full_user(event):
 async def info(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "`Analysing the chat...`")
+    speedo = await eor(event, "`Analysing the chat...`")
     chat = await get_chatinfo(event)
     caption = await fetch_info(chat, event)
     try:
-        await hell.edit(caption, parse_mode="html")
+        await speedo.edit(caption, parse_mode="html")
     except Exception as e:
         print("Exception:", e)
-        await eod(hell, "`An unexpected error has occurred.`")
+        await eod(speedo, "`An unexpected error has occurred.`")
     return
 
 
@@ -622,25 +622,25 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "Fetching Ids...")
+    speedo = await eor(event, "Fetching Ids...")
     if event.reply_to_msg_id:
         await event.get_input_chat()
         r_msg = await event.get_reply_message()
         if r_msg.media:
             bot_api_file_id = pack_bot_file_id(r_msg.media)
-            await hell.edit(
+            await speedo.edit(
                 "🔸 **Current Chat ID:** `{}`\n\n🔰 **From User ID:** `{}`\n\n🤖 **Bot API File ID:** `{}`".format(
                     str(event.chat_id), str(r_msg.sender_id), bot_api_file_id
                 )
             )
         else:
-            await hell.edit(
+            await speedo.edit(
                 "🔸 **Current Chat ID:** `{}`\n\n🔰 **From User ID:** `{}`".format(
                     str(event.chat_id), str(r_msg.sender_id)
                 )
             )
     else:
-        await hell.edit("🔸 **Current Chat ID:** `{}`".format(str(event.chat_id)))
+        await speedo.edit("🔸 **Current Chat ID:** `{}`".format(str(event.chat_id)))
 
 
 CmdHelp("infos").add_command(

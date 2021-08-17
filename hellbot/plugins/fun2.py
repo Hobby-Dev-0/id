@@ -267,29 +267,29 @@ async def payf(event):
 
 @bot.on(Speedo_cmd(pattern="cat$"))
 @bot.on(sudo_cmd(pattern="cat$", allow_sudo=True))
-async def hmm(hell):
-    if hell.fwd_from:
+async def hmm(speedo):
+    if speedo.fwd_from:
         return
     reactcat = nekos.textcat()
-    await eor(hell, reactcat)
+    await eor(speedo, reactcat)
 
 
 @bot.on(Speedo_cmd(pattern="why$"))
 @bot.on(sudo_cmd(pattern="why$", allow_sudo=True))
-async def hmm(hell):
-    if hell.fwd_from:
+async def hmm(speedo):
+    if speedo.fwd_from:
         return
-    whyhell = nekos.why()
-    await eor(hell, whyhell)
+    whyspeedo = nekos.why()
+    await eor(speedo, whyspeedo)
 
 
 @bot.on(Speedo_cmd(pattern="fact$"))
 @bot.on(sudo_cmd(pattern="fact$", allow_sudo=True))
-async def hmm(hell):
-    if hell.fwd_from:
+async def hmm(speedo):
+    if speedo.fwd_from:
         return
-    facthell = nekos.fact()
-    await eor(hell, facthell)
+    factspeedo = nekos.fact()
+    await eor(speedo, factspeedo)
 
 
 CmdHelp("fun2").add_command(

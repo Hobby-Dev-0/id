@@ -44,7 +44,7 @@ async def _(event):
     if event.fwd_from:
         return
     query = event.pattern_match.group(1)
-    hell = await eor(event, "Finding Sites...")
+    speedo = await eor(event, "Finding Sites...")
     streams = get_stream_data(query)
     title = streams["title"]
     thumb_link = streams["movie_thumb"]
@@ -94,7 +94,7 @@ async def google(event):
     input_str = event.pattern_match.group(1)
     if not input_str:
         return await eod(event, "`Give something to search..`")
-    hell = await eor(event, "Searching...")
+    speedo = await eor(event, "Searching...")
     gos = GoogleSearch()
     try:
         got = await gos.async_search(f"{input_str}", cache=False)
@@ -112,7 +112,7 @@ async def google(event):
         see.append(res[i : i + 4095])
     for j in see:
         await bot.send_message(event.chat_id, j, link_preview=False)
-    await hell.delete()
+    await speedo.delete()
     see.clear()
 
 
@@ -122,7 +122,7 @@ async def img(event):
     sim = event.pattern_match.group(1)
     if not sim:
         return await eod(event, "`Give something to search...`")
-    hell = await eor(event, f"Searching for  `{sim}`...")
+    speedo = await eor(event, f"Searching for  `{sim}`...")
     if "-" in sim:
         try:
             lim = int(sim.split(";")[1])
@@ -142,7 +142,7 @@ async def img(event):
     gotit = letsgo[0][sim]
     await event.client.send_file(event.chat_id, gotit, caption=sim, album=True)
     rmtree(f"./DOWNLOADS/{sim}/")
-    await hell.delete()
+    await speedo.delete()
 
 
 @bot.on(Speedo_cmd(pattern="reverse"))
@@ -154,7 +154,7 @@ async def _(event):
     BASE_URL = "http://www.google.com"
     OUTPUT_STR = "Reply to an image to do Google Reverse Search"
     if event.reply_to_msg_id:
-        hell = await eor(event, "Pre Processing Media")
+        speedo = await eor(event, "Pre Processing Media")
         previous_message = await event.get_reply_message()
         previous_message_text = previous_message.message
         if previous_message.media:
@@ -181,7 +181,7 @@ async def _(event):
             request_url = SEARCH_URL.format(BASE_URL, previous_message_text)
             google_rs_response = requests.get(request_url, allow_redirects=False)
             the_location = google_rs_response.headers.get("Location")
-        await hell.edit("Found Google Result. Processing results...")
+        await speedo.edit("Found Google Result. Processing results...")
         headers = {
             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0"
         }
@@ -202,7 +202,7 @@ async def _(event):
 More Info: Open this <a href="{the_location}">Link</a> in {ms} seconds""".format(
             **locals()
         )
-    await hell.edit(OUTPUT_STR, parse_mode="HTML", link_preview=False)
+    await speedo.edit(OUTPUT_STR, parse_mode="HTML", link_preview=False)
 
 
 @bot.on(Speedo_cmd(pattern="gps ?(.*)"))

@@ -19,19 +19,19 @@ async def kk(event):
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     cmd = "ls Speedo/plugins"
-    thumb = hell_logo
-    process = await asyncio.create_subprocess_shell(
+    thumb = speedo_logo
+    process = await asyncio.create_subprocess_sspeedo(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     _o = o.split("\n")
     o = "\n".join(_o)
-    OUTPUT = f"List of Plugins in bot :- \n\n{o}\n\n<><><><><><><><><><><><><><><><><><><><><><><><>\nHELP:- If you want to know the commands for a plugin, do :- \n.plinfo <plugin name> without the < > brackets. \nJoin {hell_grp} for help."
+    OUTPUT = f"List of Plugins in bot :- \n\n{o}\n\n<><><><><><><><><><><><><><><><><><><><><><><><>\nHELP:- If you want to know the commands for a plugin, do :- \n.plinfo <plugin name> without the < > brackets. \nJoin {speedo_grp} for help."
     if len(OUTPUT) > 69:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "cmd_list.text"
-            hell_file = await bot.send_file(
+            speedo_file = await bot.send_file(
                 event.chat_id,
                 out_file,
                 force_document=True,
@@ -39,7 +39,7 @@ async def kk(event):
                 thumb=thumb,
                 reply_to=reply_to_id,
             )
-            await edit_or_reply(hell_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {HELL_USER}")
+            await edit_or_reply(speedo_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {HELL_USER}")
             await event.delete()
 
 
@@ -49,9 +49,9 @@ async def send(event):
     if event.fwd_from:
         return
     message_id = event.message.id
-    thumb = hell_logo
+    thumb = speedo_logo
     input_str = event.pattern_match.group(1)
-    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {hell_mention}\n\n⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ Speedo]({chnl_link})** ⚡"
+    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {speedo_mention}\n\n⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ Speedo]({chnl_link})** ⚡"
     the_plugin_file = "./Speedo/plugins/{}.py".format(input_str)
     if os.path.exists(the_plugin_file):
         lauda = await event.client.send_file(
@@ -100,7 +100,7 @@ async def install(event):
                             a = "__Installing...__"
                             b = 1
                         await eor(event, a)
-                    return await eor(event, f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {hell_mention}\n\n{string}\n\n        ⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ Speedo]({chnl_link})** ⚡", link_preview=False)
+                    return await eor(event, f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {speedo_mention}\n\n{string}\n\n        ⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ Speedo]({chnl_link})** ⚡", link_preview=False)
                 return await eor(event, f"Installed module `{os.path.basename(downloaded_file_name)}`")
             else:
                 os.remove(downloaded_file_name)

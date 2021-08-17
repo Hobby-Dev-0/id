@@ -12,12 +12,12 @@ async def mediainfo(event):
         return await eod(event, "Reply to a media to fetch info...")
     if not reply.media:
         return await eod(event, "Reply to a media file to fetch info...")
-    hell = await eor(event, "`Fetching media info...`")
+    speedo = await eor(event, "`Fetching media info...`")
     HELL_MEDIA = reply.file.mime_type
     if not HELL_MEDIA:
-        return await hell.edit("Reply to a media file to fetch info...")
+        return await speedo.edit("Reply to a media file to fetch info...")
     elif HELL_MEDIA.startswith(("text")):
-        return await hell.edit("Reply to a media file to fetch info ...")
+        return await speedo.edit("Reply to a media file to fetch info ...")
     hel_ = await mediadata(reply)
     file_path = await reply.download_media(Config.TMP_DOWNLOAD_DIRECTORY)
     out, err, ret, pid = await runcmd(f"mediainfo '{file_path}'")
@@ -33,7 +33,7 @@ async def mediainfo(event):
 {out} 
 </code>"""
     paste = await telegraph_paste(f"{HELL_MEDIA}", paster)
-    await hell.edit(f"📌 Fetched  Media Info Successfully !! \n\n**Check Here :** [{HELL_MEDIA}]({paste})")
+    await speedo.edit(f"📌 Fetched  Media Info Successfully !! \n\n**Check Here :** [{HELL_MEDIA}]({paste})")
     os.remove(file_path)
 
 CmdHelp("mediainfo").add_command(

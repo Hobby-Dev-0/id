@@ -94,7 +94,7 @@ async def deepfry(img: Image) -> Image:
         (randint(190, 255), randint(170, 240), randint(180, 250)),
     )
     img = img.copy().convert("RGB")
-    # Crush image to hell and back
+    # Crush image to speedo and back
     img = img.convert("RGB")
     width, height = img.width, img.height
     img = img.resize(
@@ -116,7 +116,7 @@ async def deepfry(img: Image) -> Image:
     overlay = ImageEnhance.Contrast(overlay).enhance(uniform(1.0, 2.0))
     overlay = ImageEnhance.Brightness(overlay).enhance(uniform(1.0, 2.0))
     overlay = ImageOps.colorize(overlay, colours[0], colours[1])
-    # Overlay red and yellow onto main image and sharpen the hell out of it
+    # Overlay red and yellow onto main image and sharpen the speedo out of it
     img = Image.blend(img, overlay, uniform(0.1, 0.4))
     img = ImageEnhance.Sharpness(img).enhance(randint(5, 300))
     return img

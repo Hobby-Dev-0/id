@@ -15,7 +15,7 @@ DEL_TIME_OUT = 60
 async def _(event):
     if event.fwd_from:
         return
-    hell = await edit_or_reply(event, "`Starting AutoName Please Wait`")
+    speedo = await edit_or_reply(event, "`Starting AutoName Please Wait`")
     if event.fwd_from:
         return
     while True:
@@ -33,7 +33,7 @@ async def _(event):
             logger.warning(str(e))
             await asyncio.sleep(ex.seconds)
         await asyncio.sleep(DEL_TIME_OUT)
-        await hell.edit(f"Auto Name has been started my Master")
+        await speedo.edit(f"Auto Name has been started my Master")
         await bot.send_message(Config.LOGGER_ID, "#AUTONAME \n\nAutoname Started!!")
 
 

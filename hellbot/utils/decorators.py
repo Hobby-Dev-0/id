@@ -42,12 +42,12 @@ def Speedo_cmd(pattern=None, command=None, **args):
                 CMD_LIST.update({file_test: [cmd]})
         else:
             if len(Config.HANDLER) == 2:
-                hellreg = "^" + Config.HANDLER
+                speedoreg = "^" + Config.HANDLER
                 reg = Config.HANDLER[1]
             elif len(Config.HANDLER) == 1:
-                hellreg = "^\\" + Config.HANDLER
+                speedoreg = "^\\" + Config.HANDLER
                 reg = Config.HANDLER
-            args["pattern"] = re.compile(hellreg + pattern)
+            args["pattern"] = re.compile(speedoreg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -110,12 +110,12 @@ def sudo_cmd(pattern=None, command=None, **args):
                 SUDO_LIST.update({file_test: [cmd]})
         else:
             if len(Config.SUDO_HANDLER) == 2:
-                hellreg = "^" + Config.SUDO_HANDLER
+                speedoreg = "^" + Config.SUDO_HANDLER
                 reg = Config.SUDO_HANDLER[1]
             elif len(Config.SUDO_HANDLER) == 1:
-                hellreg = "^\\" + Config.SUDO_HANDLER
+                speedoreg = "^\\" + Config.SUDO_HANDLER
                 reg = Config.HANDLER
-            args["pattern"] = re.compile(hellreg + pattern)
+            args["pattern"] = re.compile(speedoreg + pattern)
             if command is not None:
                 cmd = reg + command
             else:

@@ -41,7 +41,7 @@ def get_video_thumb(file, output=None, width=90):
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, 
+    speedo = await eor(event, 
         "Renaming in progress...\nThis might take some time if file is big. 🥴"
     )
     input_str = event.pattern_match.group(1)
@@ -60,12 +60,12 @@ async def _(event):
         end = datetime.datetime.now()
         ms = (end - start).seconds
         if os.path.exists(downloaded_file_name):
-            await hell.edit("Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms)
+            await speedo.edit("Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms)
             )
         else:
-            await eod(hell, "Error Occurred\n {}".format(input_str))
+            await eod(speedo, "Error Occurred\n {}".format(input_str))
     else:
-        await eod(hell, f"Syntax `{hl}rename file.name` as reply to a Telegram media")
+        await eod(speedo, f"Syntax `{hl}rename file.name` as reply to a Telegram media")
 
 
 @bot.on(Speedo_cmd(pattern="rnupload (.*)", outgoing=True))
@@ -76,7 +76,7 @@ async def _(event):
     thumb = None
     if os.path.exists(thumb_image_path):
         thumb = thumb_image_path
-    hell = await eor(event, 
+    speedo = await eor(event, 
         "Renaming And Uploading File..."
     )
     input_str = event.pattern_match.group(1)
@@ -107,14 +107,14 @@ async def _(event):
             end_two = datetime.datetime.now()
             os.remove(downloaded_file_name)
             ms_two = (end_two - end).seconds
-            await hell.edit("Downloaded in {} seconds. Uploaded in {} seconds.".format(
+            await speedo.edit("Downloaded in {} seconds. Uploaded in {} seconds.".format(
                     ms_one, ms_two
                 )
             )
         else:
             await eod(event, "File Not Found {}".format(input_str))
     else:
-        await hell.edit("Syntax // `{}rnupload file.name` as reply to a Telegram media".format(hl))
+        await speedo.edit("Syntax // `{}rnupload file.name` as reply to a Telegram media".format(hl))
 
 
 @bot.on(Speedo_cmd(pattern="rnsupload (.*)", outgoing=True))
@@ -122,7 +122,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, 
+    speedo = await eor(event, 
         "Rename & Upload as streamable format is in progress..."
     )
     input_str = event.pattern_match.group(1)
@@ -187,19 +187,19 @@ async def _(event):
                     ],
                 )
             except Exception as e:
-                await hell.edit(event, str(e))
+                await speedo.edit(event, str(e))
             else:
                 end = datetime.datetime.now()
                 os.remove(downloaded_file_name)
                 ms_two = (end - end_one).seconds
-                await hell.edit("Downloaded in {} seconds. Uploaded in {} seconds.".format(
+                await speedo.edit("Downloaded in {} seconds. Uploaded in {} seconds.".format(
                         ms_one, ms_two
                     )
                 )
         else:
-            await eod(hell, "File Not Found {}".format(input_str))
+            await eod(speedo, "File Not Found {}".format(input_str))
     else:
-        await hell.edit(
+        await speedo.edit(
             "Syntax // .rnsupload file.name as reply to a Telegram media"
         )
 

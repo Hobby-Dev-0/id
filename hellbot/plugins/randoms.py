@@ -59,31 +59,31 @@ async def _(e):
 @bot.on(sudo_cmd(pattern=r"shayri$", allow_sudo=True))
 async def _(e):
     txt = random.choice(SHAYRI)
-    await eor(e, txt.format(hell_mention))
+    await eor(e, txt.format(speedo_mention))
 
 @bot.on(Speedo_cmd(pattern=r"hflirt$", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"hflirt$", allow_sudo=True))
 async def _(e):
     txt = random.choice(HFLIRT)
-    await eor(e, txt.format(hell_mention))
+    await eor(e, txt.format(speedo_mention))
 
 @bot.on(Speedo_cmd(pattern=r"eflirt$", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"eflirt$", allow_sudo=True))
 async def _(e):
     txt = random.choice(EFLIRT)
-    await eor(e, txt.format(hell_mention))
+    await eor(e, txt.format(speedo_mention))
 
 @bot.on(Speedo_cmd(pattern=r"attitude$", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"attitude$", allow_sudo=True))
 async def _(e):
     txt = random.choice(ATTITUDE)
-    await eor(e, txt.format(hell_mention))
+    await eor(e, txt.format(speedo_mention))
 
 @bot.on(Speedo_cmd(pattern="gbye$", outgoing=True))
 @bot.on(sudo_cmd(pattern="gbye$", allow_sudo=True))
 async def _(e):
     txt = random.choice(GBYE)
-    await eor(e, txt.format(hell_mention))
+    await eor(e, txt.format(speedo_mention))
 
 CmdHelp("randoms").add_command(
   'sing', None, 'Sings a song'

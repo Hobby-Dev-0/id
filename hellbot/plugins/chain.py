@@ -7,7 +7,7 @@ from . import *
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "Counting...")
+    speedo = await eor(event, "Counting...")
     count = -1
     message = event.message
     while message:
@@ -20,7 +20,7 @@ async def _(event):
             )
         message = reply
         count += 1
-    await hell.edit(f"⛓️ **Chain length :**  `{count}`")
+    await speedo.edit(f"⛓️ **Chain length :**  `{count}`")
 
 
 CmdHelp("chain").add_command(

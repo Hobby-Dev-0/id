@@ -12,13 +12,13 @@ global groupsid
 groupsid = []
 
 
-async def all_groups_id(hell):
-    hellgroups = []
-    async for dialog in hell.client.iter_dialogs():
+async def all_groups_id(speedo):
+    speedogroups = []
+    async for dialog in speedo.client.iter_dialogs():
         entity = dialog.entity
         if isinstance(entity, Channel) and entity.megagroup:
-            hellgroups.append(entity.id)
-    return hellgroups
+            speedogroups.append(entity.id)
+    return speedogroups
 
 
 @bot.on(Speedo_cmd(pattern="frwd$"))

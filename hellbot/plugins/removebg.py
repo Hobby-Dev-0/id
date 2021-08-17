@@ -40,20 +40,20 @@ async def remove_background(event):
     message_id = await reply_id(event)
     if event.reply_to_msg_id and not input_str:
         reply_message = await event.get_reply_message()
-        hellevent = await edit_or_reply(event, "`Analysing...`")
+        speedoevent = await edit_or_reply(event, "`Analysing...`")
         file_name = os.path.join(TEMP_DIR, "rmbg.png")
         try:
             await event.client.download_media(reply_message, file_name)
         except Exception as e:
-            await edit_or_reply(hellevent, f"`{str(e)}`")
+            await edit_or_reply(speedoevent, f"`{str(e)}`")
             return
         else:
-            await hellevent.edit("`Removing Background of this media`")
+            await speedoevent.edit("`Removing Background of this media`")
             file_name = convert_toimage(file_name)
             response = ReTrieveFile(file_name)
             os.remove(file_name)
     elif input_str:
-        hellevent = await edit_or_reply(event, "`Removing Background of this media`")
+        speedoevent = await edit_or_reply(event, "`Removing Background of this media`")
         response = ReTrieveURL(input_str)
     else:
         await edit_or_reply(
@@ -67,7 +67,7 @@ async def remove_background(event):
         with open("HellBot.png", "wb") as removed_bg_file:
             removed_bg_file.write(response.content)
     else:
-        await edit_or_reply(hellevent, f"`{response.content.decode('UTF-8')}`")
+        await edit_or_reply(speedoevent, f"`{response.content.decode('UTF-8')}`")
         return
     if cmd == "srmbg":
         file = convert_tosticker(remove_bg_image, filename="HellBot.webp")
@@ -84,7 +84,7 @@ async def remove_background(event):
             force_document=True,
             reply_to=message_id,
         )
-    await hellevent.delete()
+    await speedoevent.delete()
 
 
 # this method will call the API, and return in the appropriate format

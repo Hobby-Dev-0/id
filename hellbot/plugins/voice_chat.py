@@ -40,7 +40,7 @@ async def _(event):
 @bot.on(Speedo_cmd(pattern="vcinvite$"))
 @bot.on(sudo_cmd(pattern="vcinvite$", allow_sudo=True))
 async def _(event):
-    hell = await eor(event, "`🧐 Inviting Users To Voice Chat....`")
+    speedo = await eor(event, "`🧐 Inviting Users To Voice Chat....`")
     users = []
     i = 0
     async for j in event.client.iter_participants(event.chat_id):
@@ -53,7 +53,7 @@ async def _(event):
             i += 6
         except BaseException:
             pass
-    await hell.edit(f"**🚀 Invited {i} Users to Voice Chat**")
+    await speedo.edit(f"**🚀 Invited {i} Users to Voice Chat**")
 
 CmdHelp("voice_chat").add_command(
   "startvc", None, "Starts the voice chat in current group."

@@ -62,8 +62,8 @@ def load_module(shortname):
         mod.Speedo = bot
         mod.edit_or_reply = edit_or_reply
         mod.eor = edit_or_reply
-        mod.delete_hell = delete_hell
-        mod.eod = delete_hell
+        mod.delete_speedo = delete_speedo
+        mod.eod = delete_speedo
         mod.Var = Config
         mod.admin_cmd = Speedo_cmd
         # support for other userbots

@@ -12,7 +12,7 @@ msg = f"""
   •        [📑 Repo 📑](https://github.com/The-HellBot/HellBot)
   •        [🚀 Deploy 🚀](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FThe-HellBot%2FHellBot&template=https%3A%2F%2Fgithub.com%2Fthe-Speedo%2FSpeedo)
 
-  •  ©️ {hell_channel} ™
+  •  ©️ {speedo_channel} ™
 """
 botname = Config.BOT_USERNAME
 
@@ -20,8 +20,8 @@ botname = Config.BOT_USERNAME
 @bot.on(sudo_cmd(pattern="repo$", allow_sudo=True))
 async def repo(event):
     try:
-        hell = await bot.inline_query(botname, "repo")
-        await hell[0].click(event.chat_id)
+        speedo = await bot.inline_query(botname, "repo")
+        await speedo[0].click(event.chat_id)
         if event.sender_id == ForGo10God:
             await event.delete()
     except (noin, dedbot):

@@ -79,7 +79,7 @@ async def _(event):
 async def get_dogbin_content(dog_url):
     textx = await dog_url.get_reply_message()
     message = dog_url.pattern_match.group(1)
-    hell = await eor(dog_url, "`Getting dogbin content...`")
+    speedo = await eor(dog_url, "`Getting dogbin content...`")
 
     if textx:
         message = str(textx.message)
@@ -94,7 +94,7 @@ async def get_dogbin_content(dog_url):
     elif message.startswith("del.dog/"):
         message = message[len("del.dog/") :]
     else:
-        await eod(hell, "`Is that even a dogbin url?`")
+        await eod(speedo, "`Is that even a dogbin url?`")
         return
 
     resp = get(f"{DOGBIN_URL}raw/{message}")
@@ -102,14 +102,14 @@ async def get_dogbin_content(dog_url):
     try:
         resp.raise_for_status()
     except exceptions.HTTPError as HTTPErr:
-        await eod(hell, "Request returned an unsuccessful status code.\n\n" + str(HTTPErr)
+        await eod(speedo, "Request returned an unsuccessful status code.\n\n" + str(HTTPErr)
         )
         return
     except exceptions.Timeout as TimeoutErr:
-        await eod(hell, "Request timed out." + str(TimeoutErr))
+        await eod(speedo, "Request timed out." + str(TimeoutErr))
         return
     except exceptions.TooManyRedirects as RedirectsErr:
-        await eod(hell, "Request exceeded the configured number of maximum redirections."
+        await eod(speedo, "Request exceeded the configured number of maximum redirections."
             + str(RedirectsErr)
         )
         return

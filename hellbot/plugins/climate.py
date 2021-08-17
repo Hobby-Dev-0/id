@@ -126,7 +126,7 @@ async def get_weather(weather):
         + f"**{desc}**\n"
         + f"`{cityname}, {fullc_n}`\n"
         + f"`{time}`\n\n"
-        + f"**By :**  {hell_mention}",
+        + f"**By :**  {speedo_mention}",
     )
 
 

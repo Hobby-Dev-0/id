@@ -47,11 +47,11 @@ async def kang(args):
 
     if message and message.media:
         if isinstance(message.media, MessageMediaPhoto):
-            hell = await eor(args, f"`{random.choice(KANGING_STR)}`")
+            speedo = await eor(args, f"`{random.choice(KANGING_STR)}`")
             photo = io.BytesIO()
             photo = await bot.download_media(message.photo, photo)
         elif "image" in message.media.document.mime_type.split("/"):
-            hell = await eor(args, f"`{random.choice(KANGING_STR)}`")
+            speedo = await eor(args, f"`{random.choice(KANGING_STR)}`")
             photo = io.BytesIO()
             await bot.download_file(message.media.document, photo)
             if (
@@ -61,7 +61,7 @@ async def kang(args):
                 emoji = message.media.document.attributes[1].alt
                 emojibypass = True
         elif "tgsticker" in message.media.document.mime_type:
-            hell = await eor(args, f"`{random.choice(KANGING_STR)}`")
+            speedo = await eor(args, f"`{random.choice(KANGING_STR)}`")
             await bot.download_file(message.media.document, "AnimatedSticker.tgs")
 
             attributes = message.media.document.attributes
@@ -139,7 +139,7 @@ async def kang(args):
                         if Speedo
                         else f"@{user.username}'s HellBot Vol.{pack}"
                     )
-                    await hell.edit(
+                    await speedo.edit(
                         "`Switching to Pack "
                         + str(pack)
                         + " due to insufficient space`"
@@ -183,7 +183,7 @@ async def kang(args):
                         await conv.get_response()
                         # Ensure user doesn't get spamming notifications
                         await bot.send_read_acknowledge(conv.chat_id)
-                        await hell.edit(
+                        await speedo.edit(
                             f"`Sticker added in a Different Pack !\
                             \nThis Pack is Newly created!\
                             \nYour pack can be found [here](t.me/addstickers/{packname})",
@@ -198,7 +198,7 @@ async def kang(args):
                     await conv.send_file(file, force_document=True)
                 rsp = await conv.get_response()
                 if "Sorry, the file type is invalid." in rsp.text:
-                    await hell.edit(
+                    await speedo.edit(
                         "`Failed to add sticker, use` @Stickers `bot to add the sticker manually.`"
                     )
                     return
@@ -211,7 +211,7 @@ async def kang(args):
                 # Ensure user doesn't get spamming notifications
                 await bot.send_read_acknowledge(conv.chat_id)
         else:
-            await hell.edit("`Preparing a new pack....`")
+            await speedo.edit("`Preparing a new pack....`")
             async with bot.conversation("Stickers") as conv:
                 await conv.send_message(cmd)
                 await conv.get_response()
@@ -229,7 +229,7 @@ async def kang(args):
                     await conv.send_file(file, force_document=True)
                 rsp = await conv.get_response()
                 if "Sorry, the file type is invalid." in rsp.text:
-                    await hell.edit(
+                    await speedo.edit(
                         "`Failed to add sticker, use` @Stickers `bot to add the sticker manually.`"
                     )
                     return
@@ -255,7 +255,7 @@ async def kang(args):
                 # Ensure user doesn't get spamming notifications
                 await bot.send_read_acknowledge(conv.chat_id)
 
-        await hell.edit(
+        await speedo.edit(
             f"⚡** This Sticker iz [kanged](t.me/addstickers/{packname}) successfully to your pack **⚡",
             parse_mode="md",
         )
@@ -384,14 +384,14 @@ async def _(event):
         await event.edit("`Reply to any user's message.`")
         return
     reply_message = await event.get_reply_message()
-    hell = event.pattern_match.group(1)
+    speedo = event.pattern_match.group(1)
     chat = "@Stickers"
     reply_message.sender
     if reply_message.sender.bot:
         await edit_or_reply(event, "`Reply to actual user's message.`")
         return
     await event.edit("📝 `Editing sticker emoji...`")
-    if hell == "":
+    if speedo == "":
         await event.edit("**🤧 Nashe me hai kya lawde**")
     else:
         async with bot.conversation(chat) as conv:
@@ -405,7 +405,7 @@ async def _(event):
                 await bot.forward_messages(chat, reply_message)
                 await conv.get_response()
                 await asyncio.sleep(2)
-                await conv.send_message(f"{hell}")
+                await conv.send_message(f"{speedo}")
                 response = await response
             except YouBlockedUserError:
                 await event.reply("Please unblock @Stickers and try again")
@@ -416,7 +416,7 @@ async def _(event):
             elif response.text.startswith("Please send us an emoji that best describes your sticker."):
                 await event.edit("**🤧 Nashe me hai kya lawde**")
             else:
-                await event.edit(f"**😉 Done!! Edited sticker emoji**\n\nNew Emoji(s) :- {hell}")
+                await event.edit(f"**😉 Done!! Edited sticker emoji**\n\nNew Emoji(s) :- {speedo}")
 
 @bot.on(Speedo_cmd(pattern="text (.*)"))
 @bot.on(sudo_cmd(pattern="text (.*)", allow_sudo=True))

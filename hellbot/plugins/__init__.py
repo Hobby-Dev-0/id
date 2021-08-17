@@ -4,21 +4,21 @@ from Speedo.config import Config
 from Speedo.helpers import *
 from Speedo.utils import *
 from Speedo.random_strings import *
-from Speedo.version import __hell__
+from Speedo.version import __speedo__
 from telethon import version
 
 
 HELL_USER = bot.me.first_name
 ForGo10God = bot.uid
-hell_mention = f"[{HELL_USER}](tg://user?id={ForGo10God})"
-hell_logo = "./Speedo/resources/pics/Speedo_logo.jpg"
+speedo_mention = f"[{HELL_USER}](tg://user?id={ForGo10God})"
+speedo_logo = "./Speedo/resources/pics/Speedo_logo.jpg"
 cjb = "./Speedo/resources/pics/cjb.jpg"
 restlo = "./Speedo/resources/pics/rest.jpeg"
 shuru = "./Speedo/resources/pics/shuru.jpg"
 shhh = "./Speedo/resources/pics/chup_madarchod.jpeg"
 hl = Config.HANDLER
 shl = Config.SUDO_HANDLER
-hell_ver = __hell__
+speedo_ver = __speedo__
 tel_ver = version.__version__
 
 async def get_user_id(ids):
@@ -50,9 +50,9 @@ if "@" in my_group:
     my_group = my_group.replace("@", "")
 
 chnl_link = "https://t.me/its_Speedo"
-hell_channel = f"[†hê Hêllẞø†]({chnl_link})"
+speedo_channel = f"[†hê Hêllẞø†]({chnl_link})"
 grp_link = "https://t.me/HellBot_Chat"
-hell_grp = f"[Hêllẞø† Group]({grp_link})"
+speedo_grp = f"[Hêllẞø† Group]({grp_link})"
 
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**
   {mention} :  To mention the user

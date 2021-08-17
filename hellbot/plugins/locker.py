@@ -91,7 +91,7 @@ async def locks(event):
         await bot.send_file(
             event.chat_id,
             restlo,
-            caption=f"{hell_mention} Locked `{what}` \n__Cause its Rest Time !!__",
+            caption=f"{speedo_mention} Locked `{what}` \n__Cause its Rest Time !!__",
             )
     except BaseException as e:
         await eod(event, f"`Do I have proper rights for that ??`\n**Error:** {str(e)}")
@@ -188,10 +188,10 @@ async def rem_locks(event):
             await bot.send_file(
                 event.chat_id,
                 shuru,
-                caption=f"**{hell_mention} unlocked** `{what}`",
+                caption=f"**{speedo_mention} unlocked** `{what}`",
             )
         else:
-            await eor(event, f"{hell_mention} Unlocked `{what}` \n__Now Start Chit Chat !!__")
+            await eor(event, f"{speedo_mention} Unlocked `{what}` \n__Now Start Chit Chat !!__")
     except BaseException as e:
         await eod(event, f"`Do I have proper rights for that ??`\n**Error:** {str(e)}")
         return

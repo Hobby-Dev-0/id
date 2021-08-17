@@ -5,15 +5,15 @@ from . import *
 
 @bot.on(Speedo_cmd(pattern="ping$"))
 @bot.on(sudo_cmd(pattern="ping$", allow_sudo=True))
-async def pong(hell):
-    if hell.fwd_from:
+async def pong(speedo):
+    if speedo.fwd_from:
         return
     start = datetime.datetime.now()
-    event = await eor(hell, "`·.·★ ℘ıŋɠ ★·.·´")
+    event = await eor(speedo, "`·.·★ ℘ıŋɠ ★·.·´")
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(
-        f"╰•★★  ℘ơŋɠ ★★•╯\n\n    ⚘  `{ms}`\n    ⚘  __**Oɯɳҽɾ**__ **:**  {hell_mention}"
+        f"╰•★★  ℘ơŋɠ ★★•╯\n\n    ⚘  `{ms}`\n    ⚘  __**Oɯɳҽɾ**__ **:**  {speedo_mention}"
     )
 
 

@@ -17,9 +17,9 @@ from telethon.tl.functions.messages import ExportChatInviteRequest
 
 from . import *
 
-hell_row = Config.BUTTONS_IN_HELP
-hell_emoji = Config.EMOJI_IN_HELP
-hell_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/58df4d86400922aa32acd.jpg"
+speedo_row = Config.BUTTONS_IN_HELP
+speedo_emoji = Config.EMOJI_IN_HELP
+speedo_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/58df4d86400922aa32acd.jpg"
 cstm_pmp = Config.CUSTOM_PMPERMIT
 ALV_PIC = Config.ALIVE_PIC
 help_pic = Config.HELP_PIC or "https://telegra.ph/file/62b0f29c8887887f259ac.jpg"
@@ -58,7 +58,7 @@ alive_txt = """
 """
 
 def button(page, modules):
-    Row = hell_row
+    Row = speedo_row
     Column = 3
 
     modules = sorted([modul for modul in modules if not modul.startswith("_")])
@@ -71,7 +71,7 @@ def button(page, modules):
     for pairs in pairs[page]:
         buttons.append(
             [
-                custom.Button.inline(f"{hell_emoji} " + pair + f" {hell_emoji}", data=f"Information[{page}]({pair})")
+                custom.Button.inline(f"{speedo_emoji} " + pair + f" {speedo_emoji}", data=f"Information[{page}]({pair})")
                 for pair in pairs
             ]
         )
@@ -79,13 +79,13 @@ def button(page, modules):
     buttons.append(
         [
             custom.Button.inline(
-               f"◀️ Back {hell_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
+               f"◀️ Back {speedo_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
             ),
             custom.Button.inline(
                f"• ❌ •", data="close"
             ),
             custom.Button.inline(
-               f"{hell_emoji} Next ▶️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
+               f"{speedo_emoji} Next ▶️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
             ),
         ]
     )
@@ -106,7 +106,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            help_msg = f"🔰 **{hell_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}"
+            help_msg = f"🔰 **{speedo_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}"
             if help_pic and help_pic.endswith((".jpg", ".png")):
                 result = builder.photo(
                     help_pic,
@@ -131,9 +131,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
         elif event.query.user_id == bot.uid and query.startswith("fsub"):
             hunter = event.pattern_match.group(1)
-            hell = hunter.split("+")
-            user = await bot.get_entity(int(hell[0]))
-            channel = await bot.get_entity(int(hell[1]))
+            speedo = hunter.split("+")
+            user = await bot.get_entity(int(speedo[0]))
+            channel = await bot.get_entity(int(speedo[1]))
             msg = f"**👋 Welcome** [{user.first_name}](tg://user?id={user.id}), \n\n**📍 You need to Join** {channel.title} **to chat in this group.**"
             if not channel.username:
                 link = (await bot(ExportChatInviteRequest(channel))).link
@@ -151,7 +151,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             ]
 
         elif event.query.user_id == bot.uid and query == "alive":
-            he_ll = alive_txt.format(Config.ALIVE_MSG, tel_ver, hell_ver, abuse_m, is_sudo)
+            he_ll = alive_txt.format(Config.ALIVE_MSG, tel_ver, speedo_ver, abuse_m, is_sudo)
             alv_btn = [
                 [Button.url(f"{HELL_USER}", f"tg://openmessage?user_id={ForGo10God}")],
                 [Button.url("My Channel", f"https://t.me/{my_channel}"), 
@@ -181,9 +181,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
 
         elif event.query.user_id == bot.uid and query == "pm_warn":
-            hel_l = HELL_FIRST.format(hell_mention, mssge)
+            hel_l = HELL_FIRST.format(speedo_mention, mssge)
             result = builder.photo(
-                file=hell_pic,
+                file=speedo_pic,
                 text=hel_l,
                 buttons=[
                     [
@@ -246,7 +246,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"🔰 This is Hêllẞø† PM Security for {hell_mention} to keep away unwanted retards from spamming PM..."
+                f"🔰 This is Hêllẞø† PM Security for {speedo_mention} to keep away unwanted retards from spamming PM..."
             )
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"req")))
@@ -256,14 +256,14 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"✅ **Request Registered** \n\n{hell_mention} will now decide to look for your request or not.\n😐 Till then wait patiently and don't spam!!"
+                f"✅ **Request Registered** \n\n{speedo_mention} will now decide to look for your request or not.\n😐 Till then wait patiently and don't spam!!"
             )
             target = await event.client(GetFullUserRequest(event.query.user_id))
             first_name = html.escape(target.user.first_name)
             ok = event.query.user_id
             if first_name is not None:
                 first_name = first_name.replace("\u2060", "")
-            tosend = f"**👀 Hey {hell_mention} !!** \n\n⚜️ You Got A Request From [{first_name}](tg://user?id={ok}) In PM!!"
+            tosend = f"**👀 Hey {speedo_mention} !!** \n\n⚜️ You Got A Request From [{first_name}](tg://user?id={ok}) In PM!!"
             await bot.send_message(LOG_GP, tosend)
 
 
@@ -275,14 +275,14 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"Ahh!! You here to do chit-chat!!\n\nPlease wait for {hell_mention} to come. Till then keep patience and don't spam."
+                f"Ahh!! You here to do chit-chat!!\n\nPlease wait for {speedo_mention} to come. Till then keep patience and don't spam."
             )
             target = await event.client(GetFullUserRequest(event.query.user_id))
             ok = event.query.user_id
             first_name = html.escape(target.user.first_name)
             if first_name is not None:
                 first_name = first_name.replace("\u2060", "")
-            tosend = f"**👀 Hey {hell_mention} !!** \n\n⚜️ You Got A PM from  [{first_name}](tg://user?id={ok})  for random chats!!"
+            tosend = f"**👀 Hey {speedo_mention} !!** \n\n⚜️ You Got A PM from  [{first_name}](tg://user?id={ok})  for random chats!!"
             await bot.send_message(LOG_GP, tosend)
 
 
@@ -311,17 +311,17 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"unmute")))
     async def on_pm_click(event):
         hunter = (event.data_match.group(1)).decode("UTF-8")
-        hell = hunter.split("+")
-        if not event.sender_id == int(hell[0]):
+        speedo = hunter.split("+")
+        if not event.sender_id == int(speedo[0]):
             return await event.answer("This Ain't For You!!", alert=True)
         try:
-            await bot(GetParticipantRequest(int(hell[1]), int(hell[0])))
+            await bot(GetParticipantRequest(int(speedo[1]), int(speedo[0])))
         except UserNotParticipantError:
             return await event.answer(
                 "You need to join the channel first.", alert=True
             )
         await bot.edit_permissions(
-            event.chat_id, int(hell[0]), send_message=True, until_date=None
+            event.chat_id, int(speedo[0]), send_message=True, until_date=None
         )
         await event.edit("Yay! You can chat now !!")
 
@@ -337,7 +337,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     for y in x:
                         apn.append(y)
                 await event.edit(
-                    f"🔰 **{hell_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
+                    f"🔰 **{speedo_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
                     buttons=simp[1],
                     link_preview=False,
                 )
@@ -349,8 +349,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"close")))
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
-            veriler = custom.Button.inline(f"{hell_emoji} Re-Open Menu {hell_emoji}", data="reopen")
-            await event.edit(f"**⚜️ Hêllẞø† Mêñû Prõvîdêr ìs ñôw Çlösëd ⚜️**\n\n**Bot Of :**  {hell_mention}\n\n        [©️ Hêllẞø† ™️]({chnl_link})", buttons=veriler, link_preview=False)
+            veriler = custom.Button.inline(f"{speedo_emoji} Re-Open Menu {speedo_emoji}", data="reopen")
+            await event.edit(f"**⚜️ Hêllẞø† Mêñû Prõvîdêr ìs ñôw Çlösëd ⚜️**\n\n**Bot Of :**  {speedo_mention}\n\n        [©️ Hêllẞø† ™️]({chnl_link})", buttons=veriler, link_preview=False)
         else:
             reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © Hêllẞø† ™"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -366,7 +366,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 apn.append(y)
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"🔰 **{hell_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}`\n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : {page + 1}/{veriler[0]}",
+                f"🔰 **{speedo_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}`\n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : {page + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False,
             )
@@ -397,7 +397,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
 
         buttons = [buttons[i : i + 2] for i in range(0, len(buttons), 2)]
-        buttons.append([custom.Button.inline(f"{hell_emoji} Main Menu {hell_emoji}", data=f"page({page})")])
+        buttons.append([custom.Button.inline(f"{speedo_emoji} Main Menu {speedo_emoji}", data=f"page({page})")])
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
                 f"**📗 File :**  `{commands}`\n**🔢 Number of commands :**  `{len(CMD_HELP_BOT[commands]['commands'])}`",
@@ -441,7 +441,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.edit(
                 result,
                 buttons=[
-                    custom.Button.inline(f"{hell_emoji} Return {hell_emoji}", data=f"Information[{page}]({cmd})")
+                    custom.Button.inline(f"{speedo_emoji} Return {speedo_emoji}", data=f"Information[{page}]({cmd})")
                 ],
                 link_preview=False,
             )

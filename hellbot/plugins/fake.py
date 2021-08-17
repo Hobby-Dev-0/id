@@ -19,7 +19,7 @@ async def _(event):
       with open("HELLBOT.jpg", 'wb') as f:
         f.write(response.content)
     
-    captin = f"Fake Image By {hell_mention}"
+    captin = f"Fake Image By {speedo_mention}"
     fole = "HELLBOT.jpg"
     await bot.send_file(event.chat_id, fole, caption=captin)
     await event.delete()

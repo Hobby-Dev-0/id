@@ -46,10 +46,10 @@ async def _(event):
 
 @bot.on(Speedo_cmd(pattern=r"trc", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"trc", allow_sudo=True))
-async def _(hell):
-    if hell.fwd_from:
+async def _(speedo):
+    if speedo.fwd_from:
         return
-    await edit_or_reply(hell, "**All The Language Codes Can Be Found** \n ⚡ [Here](https://telegra.ph/SfMæisér--𐌷𐌴ࠋࠋ𐌱𐍈𐌸-𐌾𐌰𐍀𐌾-06-04) ⚡", link_preview=False)
+    await edit_or_reply(speedo, "**All The Language Codes Can Be Found** \n ⚡ [Here](https://telegra.ph/SfMæisér--𐌷𐌴ࠋࠋ𐌱𐍈𐌸-𐌾𐌰𐍀𐌾-06-04) ⚡", link_preview=False)
 
 
 @bot.on(Speedo_cmd(pattern="voice (.*)"))
@@ -119,7 +119,7 @@ async def _(event):
 CmdHelp("google_asst").add_command(
   "voice", "<reply to a msg> <lang code>", "Sends the replied msg content in audio format."
 ).add_command(
-    "trt", "<lang code> <reply to msg>", "Translates the replied message to desired language code. Type '.trc' to get all the language codes", f"trt en - hello | {hl}trt en <reply to msg>"
+    "trt", "<lang code> <reply to msg>", "Translates the replied message to desired language code. Type '.trc' to get all the language codes", f"trt en - speedoo | {hl}trt en <reply to msg>"
 ).add_command(
   "trc", None, "Gets all the possible language codes for google translate module"
 ).add_info(

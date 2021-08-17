@@ -28,16 +28,16 @@ from . import *
 @bot.on(Speedo_cmd(pattern="lyrics(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="lyrics(?: |$)(.*)", allow_sudo=True))
 async def nope(kraken):
-    hell = kraken.pattern_match.group(1)
-    await eor(kraken, f"Searching lyrics for  `{hell}` ...")
-    if not hell:
+    speedo = kraken.pattern_match.group(1)
+    await eor(kraken, f"Searching lyrics for  `{speedo}` ...")
+    if not speedo:
         if kraken.is_reply:
             (await kraken.get_reply_message()).message
         else:
             await eod(kraken, "Give song name to get lyrics...")
             return
 
-    troll = await bot.inline_query("iLyricsBot", f"{(deEmojify(hell))}")
+    troll = await bot.inline_query("iLyricsBot", f"{(deEmojify(speedo))}")
 
     await troll[0].click(
         kraken.chat_id,

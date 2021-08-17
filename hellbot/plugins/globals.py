@@ -55,34 +55,34 @@ async def get_user_from_id(user, event):
 
 @bot.on(Speedo_cmd(pattern="gpro ?(.*)"))
 @bot.on(sudo_cmd(pattern="gpro ?(.*)", allow_sudo=True))
-async def _(hellevent):
+async def _(speedoevent):
     i = 0
-    sender = await hellevent.get_sender()
-    me = await hellevent.client.get_me()
-    hell = await eor(hellevent, "`Promoting globally...`")
+    sender = await speedoevent.get_sender()
+    me = await speedoevent.client.get_me()
+    speedo = await eor(speedoevent, "`Promoting globally...`")
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
-    await hellevent.get_chat()
-    if hellevent.is_private:
-        user = hellevent.chat
-        rank = hellevent.pattern_match.group(1)
+    await speedoevent.get_chat()
+    if speedoevent.is_private:
+        user = speedoevent.chat
+        rank = speedoevent.pattern_match.group(1)
     else:
-        hellevent.chat.title
+        speedoevent.chat.title
     try:
-        user, rank = await get_full_user(hellevent)
+        user, rank = await get_full_user(speedoevent)
     except:
         pass
     if me == user:
-       k = await hell.edit("You can't promote yourself...")
+       k = await speedo.edit("You can't promote yourself...")
        return
     try:
         if not rank:
             rank = "ㅤ"
     except:
-        return await hell.edit("**ERROR !!**")
+        return await speedo.edit("**ERROR !!**")
     if user:
         telchanel = [d.entity.id
-                     for d in await hellevent.client.get_dialogs()
+                     for d in await speedoevent.client.get_dialogs()
                      if (d.is_group or d.is_channel)
                      ]
         rgt = ChatAdminRights(add_admins=False,
@@ -93,14 +93,14 @@ async def _(hellevent):
                                    pin_messages=True)
         for x in telchanel:
           try:
-             await hellevent.client(EditAdminRequest(x, user, rgt, rank))
+             await speedoevent.client(EditAdminRequest(x, user, rgt, rank))
              i += 1
-             await hell.edit(f"**Promoting User in :**  `{i}` Chats...")
+             await speedo.edit(f"**Promoting User in :**  `{i}` Chats...")
           except:
              pass
     else:
-        await hell.edit(f"**Reply to a user !!**")
-    await hell.edit(
+        await speedo.edit(f"**Reply to a user !!**")
+    await speedo.edit(
         f"[{user.first_name}](tg://user?id={user.id}) **Was Promoted Globally In** `{i}` **Chats !!**"
     )
     await bot.send_message(Config.LOGGER_ID, f"#GPROMOTE \n\n**Globally Promoted User :** [{user.first_name}](tg://user?id={user.id}) \n\n**Total Chats :** `{i}`")
@@ -108,34 +108,34 @@ async def _(hellevent):
 
 @bot.on(Speedo_cmd(pattern="gdem ?(.*)"))
 @bot.on(sudo_cmd(pattern="gdem ?(.*)", allow_sudo=True))
-async def _(hellevent):
+async def _(speedoevent):
     i = 0
-    sender = await hellevent.get_sender()
-    me = await hellevent.client.get_me()
-    hell = await eor(hellevent, "`Demoting Globally...`")
+    sender = await speedoevent.get_sender()
+    me = await speedoevent.client.get_me()
+    speedo = await eor(speedoevent, "`Demoting Globally...`")
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
-    await hellevent.get_chat()
-    if hellevent.is_private:
-        user = hellevent.chat
-        rank = hellevent.pattern_match.group(1)
+    await speedoevent.get_chat()
+    if speedoevent.is_private:
+        user = speedoevent.chat
+        rank = speedoevent.pattern_match.group(1)
     else:
-        hellevent.chat.title
+        speedoevent.chat.title
     try:
-        user, rank = await get_full_user(hellevent)
+        user, rank = await get_full_user(speedoevent)
     except:
         pass
     if me == user:
-       k = await hell.edit("You can't Demote yourself !!")
+       k = await speedo.edit("You can't Demote yourself !!")
        return
     try:
         if not rank:
             rank = "ㅤ"
     except:
-        return await hell.edit("**ERROR !!**")
+        return await speedo.edit("**ERROR !!**")
     if user:
         telchanel = [d.entity.id
-                     for d in await hellevent.client.get_dialogs()
+                     for d in await speedoevent.client.get_dialogs()
                      if (d.is_group or d.is_channel)
                      ]
         rgt = ChatAdminRights(add_admins=None,
@@ -146,14 +146,14 @@ async def _(hellevent):
                                    pin_messages=None)
         for x in telchanel:
           try:
-             await hellevent.client(EditAdminRequest(x, user, rgt, rank))
+             await speedoevent.client(EditAdminRequest(x, user, rgt, rank))
              i += 1
-             await hell.edit(f"**Demoting Globally In Chats :** `{i}`")
+             await speedo.edit(f"**Demoting Globally In Chats :** `{i}`")
           except:
              pass
     else:
-        await hell.edit(f"**Reply to a user !!**")
-    await hell.edit(
+        await speedo.edit(f"**Reply to a user !!**")
+    await speedo.edit(
         f"[{user.first_name}](tg://user?id={user.id}) **Was Demoted Globally In** `{i}` **Chats !!**"
     )
     await bot.send_message(Config.LOGGER_ID, f"#GDEMOTE \n\n**Globally Demoted :** [{user.first_name}](tg://user?id={user.id}) \n\n**Total Chats :** `{i}`")
@@ -162,7 +162,7 @@ async def _(hellevent):
 @bot.on(Speedo_cmd(pattern=r"gban ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"gban ?(.*)", allow_sudo=True))
 async def _(event):
-    hell = await eor(event, "`Gbanning...`")
+    speedo = await eor(event, "`Gbanning...`")
     reason = ""
     if event.reply_to_msg_id:
         userid = (await event.get_reply_message()).sender_id
@@ -184,16 +184,16 @@ async def _(event):
         except IndexError:
             reason = ""
     else:
-        return await eod(hell, "**To gban a user i need a userid or reply to his/her message!!**")
+        return await eod(speedo, "**To gban a user i need a userid or reply to his/her message!!**")
     name = (await event.client.get_entity(userid)).first_name
     chats = 0
     if userid == ForGo10God:
-        return await eod(hell, "🥴 **Nashe me hai kya lawde ‽**")
+        return await eod(speedo, "🥴 **Nashe me hai kya lawde ‽**")
     if str(userid) in DEVLIST:
-        return await eod(hell, "😑 **GBan my creator ?¿ Really‽**")
+        return await eod(speedo, "😑 **GBan my creator ?¿ Really‽**")
     if is_gbanned(userid):
         return await eod(
-            hell,
+            speedo,
             "This kid is already gbanned and added to my **Gban Watch!!**",
         )
     async for gfuck in event.client.iter_dialogs():
@@ -204,23 +204,23 @@ async def _(event):
             except BaseException:
                 pass
     gbaner(userid)
-    gmsg = f"🥴 [{name}](tg://user?id={userid}) **beta majdur ko khodna 😪 aur** {hell_mention} **ko chodna... Kabhi sikhana nhi!! 😏**\n\n📍 Added to Gban Watch!!\n**🔰 Total Chats :**  `{chats}`"
+    gmsg = f"🥴 [{name}](tg://user?id={userid}) **beta majdur ko khodna 😪 aur** {speedo_mention} **ko chodna... Kabhi sikhana nhi!! 😏**\n\n📍 Added to Gban Watch!!\n**🔰 Total Chats :**  `{chats}`"
     if reason != "":
         gmsg += f"\n**🔰 Reason :**  `{reason}`"
-    ogmsg = f"[{name}](tg://user?id={userid}) **Is now GBanned by** {hell_mention} **in**  `{chats}`  **Chats!! 😏**\n\n**📍 Also Added to Gban Watch!!**"
+    ogmsg = f"[{name}](tg://user?id={userid}) **Is now GBanned by** {speedo_mention} **in**  `{chats}`  **Chats!! 😏**\n\n**📍 Also Added to Gban Watch!!**"
     if reason != "":
         ogmsg += f"\n**🔰 Reason :**  `{reason}`"
     if Config.ABUSE == "ON":
         await bot.send_file(event.chat_id, cjb, caption=gmsg)
-        await hell.delete()
+        await speedo.delete()
     else:
-        await hell.edit(ogmsg)
+        await speedo.edit(ogmsg)
 
 
 @bot.on(Speedo_cmd(pattern=r"ungban ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"ungban ?(.*)", allow_sudo=True))
 async def _(event):
-    hell = await eor(event, "`Ungban in progress...`")
+    speedo = await eor(event, "`Ungban in progress...`")
     if event.reply_to_msg_id:
         userid = (await event.get_reply_message()).sender_id
     elif event.pattern_match.group(1):
@@ -228,11 +228,11 @@ async def _(event):
     elif event.is_private:
         userid = (await event.get_chat()).id
     else:
-        return await eod(hell, "`Reply to a user or give their userid... `")
+        return await eod(speedo, "`Reply to a user or give their userid... `")
     name = (await event.client.get_entity(userid)).first_name
     chats = 0
     if not is_gbanned(userid):
-        return await eod(hell, "`User is not gbanned.`")
+        return await eod(speedo, "`User is not gbanned.`")
     async for gfuck in event.client.iter_dialogs():
         if gfuck.is_group or gfuck.is_channel:
             try:
@@ -241,7 +241,7 @@ async def _(event):
             except BaseException:
                 pass
     ungbaner(userid)
-    await hell.edit(
+    await speedo.edit(
         f"📍 [{name}](tg://user?id={userid}) **is now Ungbanned from `{chats}` chats and removed from Gban Watch!!**",
     )
 
@@ -283,7 +283,7 @@ async def _(event):
 @bot.on(Speedo_cmd(pattern=r"gkick ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"gkick ?(.*)", allow_sudo=True))
 async def gkick(event):
-    hell = await eor(event, "`Kicking globally...`")
+    speedo = await eor(event, "`Kicking globally...`")
     if event.reply_to_msg_id:
         userid = (await event.get_reply_message()).sender_id
     elif event.pattern_match.group(1):
@@ -291,13 +291,13 @@ async def gkick(event):
     elif event.is_private:
         userid = (await event.get_chat()).id
     else:
-        return await eod(hell, "`Reply to some msg or add their id.`")
+        return await eod(speedo, "`Reply to some msg or add their id.`")
     name = (await event.client.get_entity(userid)).first_name
     chats = 0
     if userid == ForGo10God:
-        return await eod(hell, "**🥴 Nashe me hai kya lawde!!**")
+        return await eod(speedo, "**🥴 Nashe me hai kya lawde!!**")
     if str(userid) in DEVLIST:
-        return await eod(hell, "**😪 I'm not going to gkick my developer!!**")
+        return await eod(speedo, "**😪 I'm not going to gkick my developer!!**")
     async for gkick in event.client.iter_dialogs():
         if gkick.is_group or gkick.is_channel:
             try:
@@ -308,9 +308,9 @@ async def gkick(event):
     gkmsg = f"🏃 **Globally Kicked** [{name}](tg://user?id={userid})'s butts !! \n\n📝 **Chats :**  `{chats}`"
     if Config.ABUSE == "ON":
         await bot.send_file(event.chat_id, cjb, caption=gkmsg)
-        await hell.delete()
+        await speedo.delete()
     else:
-        await hell.edit(gkmsg)
+        await speedo.edit(gkmsg)
 
 
 @bot.on(Speedo_cmd(pattern=r"gmute ?(\d+)?"))

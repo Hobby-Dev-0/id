@@ -45,7 +45,7 @@ async def install(event):
     if event.fwd_from:
         return
     chat = event.pattern_match.group(1)
-    hell = await eor(event, f"Starting To Install Plugins From {chat} !!"
+    speedo = await eor(event, f"Starting To Install Plugins From {chat} !!"
     )
     documentss = await bot.get_messages(chat, None, filter=InputMessagesFilterDocument)
     total = int(documentss.total)

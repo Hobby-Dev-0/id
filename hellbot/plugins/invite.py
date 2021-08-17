@@ -59,42 +59,42 @@ async def get_users(event):
     sender = await event.get_sender()
     me = await event.client.get_me()
     if not sender.id == me.id:
-        hell = await eor(event, "`processing...`")
+        speedo = await eor(event, "`processing...`")
     else:
-        hell = await eor(event, "`processing...`")
+        speedo = await eor(event, "`processing...`")
     he_ll = event.pattern_match.group(1)
     if he_ll == "@HellBot_Chat":
-        return await hell.edit("Restricted to invite users from there.")
+        return await speedo.edit("Restricted to invite users from there.")
     elif he_ll == "@Speedo_chat":
-        return await hell.edit("Restricted to invite users from there.")
+        return await speedo.edit("Restricted to invite users from there.")
     elif he_ll == "@HELLBOT_CHAT":
-        return await hell.edit("Restricted to invite users from there.")
+        return await speedo.edit("Restricted to invite users from there.")
     kraken = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await hell.edit("`Sorry, Cant add users here`")
+        return await speedo.edit("`Sorry, Cant add users here`")
     s = 0
     f = 0
     error = "None"
 
-    await hell.edit("**INVITING USERS !!**")
+    await speedo.edit("**INVITING USERS !!**")
     async for user in event.client.iter_participants(kraken.full_chat.id):
         try:
             if error.startswith("Too"):
-                return await hell.edit(
+                return await speedo.edit(
                     f"**INVITING FINISHED !**\n\n**Error :** \n`{error}`\n\n**Invited :**  `{s}` users. \n**Failed to Invite :** `{f}` users."
                 )
             await event.client(
                 functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
             )
             s = s + 1
-            await hell.edit(
+            await speedo.edit(
                 f"**INVITING USERS.. **\n\n**Invited :**  `{s}` users \n**Failed to Invite :**  `{f}` users.\n\n**×Error :**  `{error}`"
             )
         except Exception as e:
             error = str(e)
             f = f + 1
-    return await hell.edit(
+    return await speedo.edit(
         f"**INVITING FINISHED** \n\n**Invited :**  `{s}` users \n**Failed :**  `{f}` users."
     )
 

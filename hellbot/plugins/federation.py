@@ -14,7 +14,7 @@ fbot = "@MissRose_bot"
 async def _(event):
     if event.fwd_from:
         return
-    hell_input = event.pattern_match.group(1)
+    speedo_input = event.pattern_match.group(1)
     chat = "@MissRose_Bot"
     await eor(event, "`Making new fed...`")
     async with bot.conversation(chat) as conv:
@@ -22,7 +22,7 @@ async def _(event):
             response = conv.wait_event(
                 events.NewMessage(incoming=True, from_users=609517172)
             )
-            await event.client.send_message(chat, f"/newfed {hell_input}")
+            await event.client.send_message(chat, f"/newfed {speedo_input}")
             response = await response
         except YouBlockedUserError:
             await eod(event, "`Please unblock` @MissRose_Bot `and try again`")
@@ -40,13 +40,13 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return 
-    hell_input = event.pattern_match.group(1)
+    speedo_input = event.pattern_match.group(1)
     chat = "@MissRose_Bot"
     await event.edit("`Trying to rename your fed...`")
     async with event.client.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=609517172))
-              await event.client.send_message(chat, f"/renamefed {hell_input}")
+              await event.client.send_message(chat, f"/renamefed {speedo_input}")
               response = await response 
           except YouBlockedUserError: 
               await event.reply("Please Unblock @MissRose_Bot")
@@ -61,8 +61,8 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "`Collecting fstat....`")
-    thumb = hell_logo
+    speedo = await eor(event, "`Collecting fstat....`")
+    thumb = speedo_logo
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         lavde = str(previous_message.sender_id)
@@ -71,7 +71,7 @@ async def _(event):
         lavde = event.pattern_match.group(1)
         user = lavde
     if lavde == "":
-        await hell.edit(
+        await speedo.edit(
             "`Need username/id to check fstat`"
         )
         return
@@ -85,7 +85,7 @@ async def _(event):
                 await bot.send_message(event.chat_id, response)
                 await event.delete()
             except YouBlockedUserError:
-                await hell.edit("`Please Unblock` @MissRose_Bot")
+                await speedo.edit("`Please Unblock` @MissRose_Bot")
 
 
 @bot.on(Speedo_cmd(pattern="fedinfo ?(.*)"))
@@ -93,7 +93,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "`Fetching fed info.... please wait`")
+    speedo = await eor(event, "`Fetching fed info.... please wait`")
     lavde = event.pattern_match.group(1)
     async with bot.conversation(fbot) as conv:
         try:
@@ -101,9 +101,9 @@ async def _(event):
             await conv.get_response()
             await conv.send_message("/fedinfo " + lavde)
             massive = await conv.get_response()
-            await hell.edit(massive.text + "\n\n**ʟɛɢɛռɖaʀʏ_ᴀғ_Speedo**")
+            await speedo.edit(massive.text + "\n\n**ʟɛɢɛռɖaʀʏ_ᴀғ_Speedo**")
         except YouBlockedUserError:
-            await hell.edit("`Please Unblock` @MissRose_Bot")
+            await speedo.edit("`Please Unblock` @MissRose_Bot")
             
             
 CmdHelp("federation").add_command(

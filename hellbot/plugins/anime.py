@@ -16,8 +16,8 @@ async def anilist(event):
     input_str = event.pattern_match.group(1)
     event = await eor(event, "Searching...")
     result = await callAPI(input_str)
-    hell = await formatJSON(result)
-    title_img, msg = hell[0], hell[1]
+    speedo = await formatJSON(result)
+    title_img, msg = speedo[0], speedo[1]
     try:
         await bot.send_file(event.chat_id, title_img, caption=msg, force_document=True)
         await event.delete()
@@ -28,8 +28,8 @@ async def anilist(event):
 @bot.on(Speedo_cmd(pattern="anime(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="anime(?: |$)(.*)", allow_sudo=True))
 async def nope(hel_):
-    hell = hel_.pattern_match.group(1)
-    if not hell:
+    speedo = hel_.pattern_match.group(1)
+    if not speedo:
         if hel_.is_reply:
             (await hel_.get_reply_message()).message
         else:
@@ -37,7 +37,7 @@ async def nope(hel_):
             )
             return
 
-    troll = await bot.inline_query("AniFluidbot", f".anime {(deEmojify(hell))}")
+    troll = await bot.inline_query("AniFluidbot", f".anime {(deEmojify(speedo))}")
     if troll:
         await hel_.delete()
         kraken = await troll[0].click(Config.LOGGER_ID)
@@ -54,15 +54,15 @@ async def nope(hel_):
 @bot.on(Speedo_cmd(pattern="manga(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="manga(?: |$)(.*)", allow_sudo=True))
 async def nope(hel_):
-    hell = hel_.pattern_match.group(1)
-    if not hell:
+    speedo = hel_.pattern_match.group(1)
+    if not speedo:
         if hel_.is_reply:
             (await hel_.get_reply_message()).message
         else:
             await eod(hel_, "Sir please give some query to search and download it for you..!"
             )
             return
-    troll = await bot.inline_query("AniFluidbot", f".manga {(deEmojify(hell))}")
+    troll = await bot.inline_query("AniFluidbot", f".manga {(deEmojify(speedo))}")
     if troll:
         await hel_.delete()
         kraken = await troll[0].click(Config.LOGGER_ID)
@@ -80,15 +80,15 @@ async def nope(hel_):
 @bot.on(Speedo_cmd(pattern="character(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="character(?: |$)(.*)", allow_sudo=True))
 async def nope(hel_):
-    hell = hel_.pattern_match.group(1)
-    if not hell:
+    speedo = hel_.pattern_match.group(1)
+    if not speedo:
         if hel_.is_reply:
             (await hel_.get_reply_message()).message
         else:
             await eod(hel_, "Sir please give some query to search and download it for you..!"
             )
             return
-    troll = await bot.inline_query("AniFluidbot", f".character {(deEmojify(hell))}")
+    troll = await bot.inline_query("AniFluidbot", f".character {(deEmojify(speedo))}")
     if troll:
         await hel_.delete()
         kraken = await troll[0].click(Config.LOGGER_ID)
@@ -106,13 +106,13 @@ async def nope(hel_):
 @bot.on(Speedo_cmd(pattern="fillers ?(.*)"))
 @bot.on(sudo_cmd(pattern="fillers ?(.*)", allow_sudo=True))
 async def canon(event):
-    hell = event.text[9:]
-    if hell == "":
+    speedo = event.text[9:]
+    if speedo == "":
         return await eor(event, "`Give anime name to search filler episodes.`")
-    nub = await eor(event, f"Searching Filler Episodes For `{hell}`")
-    hel_ = search_filler(hell)
+    nub = await eor(event, f"Searching Filler Episodes For `{speedo}`")
+    hel_ = search_filler(speedo)
     if hel_ == {}:
-        return await nub.edit(f"No filler found for `{hell}`")
+        return await nub.edit(f"No filler found for `{speedo}`")
     list_ = list(hel_.keys())
     if len(list_) == 1:
         result = parse_filler(hel_.get(list_[0]))
@@ -150,10 +150,10 @@ async def canon(event):
 @bot.on(Speedo_cmd(pattern="aniquote$"))
 @bot.on(sudo_cmd(pattern="aniquote$", allow_sudo=True))
 async def quote(event):
-    hell = await eor(event, "(ﾉ◕ヮ◕)ﾉ*.✧")
+    speedo = await eor(event, "(ﾉ◕ヮ◕)ﾉ*.✧")
     q = requests.get("https://animechan.vercel.app/api/random").json()
     await asyncio.sleep(1.5)
-    await hell.edit("`"+q["quote"]+"`\n\n—  **"+q["character"]+"** (From __"+q["anime"]+"__)") #dimag ka bhosda hogya bc yha pe (*﹏*;)
+    await speedo.edit("`"+q["quote"]+"`\n\n—  **"+q["character"]+"** (From __"+q["anime"]+"__)") #dimag ka bhosda hogya bc yha pe (*﹏*;)
 
 
 CmdHelp("anime").add_command(

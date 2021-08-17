@@ -37,7 +37,7 @@ async def _(event):
             output_op,
         )
         await final.edit(
-            f"📥 InstaGram Video Downloaded By :- {hell_mention}")
+            f"📥 InstaGram Video Downloaded By :- {speedo_mention}")
     await event.client.delete_messages(
         conv.chat_id, [first.id, response.id, second.id, output_op.id, last.id]
     )

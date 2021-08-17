@@ -35,7 +35,7 @@ async def _(event):
             output_op,
         )
         await final.edit(
-            f"ASCII art By :- {hell_mention}")
+            f"ASCII art By :- {speedo_mention}")
     await event.client.delete_messages(
         conv.chat_id, [first.id, response.id, second.id, output_op.id, last.id]
     )
@@ -71,7 +71,7 @@ async def _(event):
             output_op,
         )
         await final.edit(
-            f"Lines By :- {hell_mention}")
+            f"Lines By :- {speedo_mention}")
     await event.client.delete_messages(
         conv.chat_id, [first.id, response.id, second.id, output_op.id, last.id]
     )

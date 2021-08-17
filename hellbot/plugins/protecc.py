@@ -24,7 +24,7 @@ def progress(current, total):
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "Hmm..")
+    speedo = await eor(event, "Hmm..")
     BASE_URL = "http://images.google.com"
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
@@ -65,7 +65,7 @@ async def _(event):
         img_size = img_size_div.find_all("div")
         OUTPUT_STR = """/protecc {prs_text}""".format(
             **locals())
-    await hell.edit(OUTPUT_STR, parse_mode="HTML", link_preview=False)
+    await speedo.edit(OUTPUT_STR, parse_mode="HTML", link_preview=False)
 
 
 @bot.on(events.NewMessage(incoming=True))
@@ -105,9 +105,9 @@ async def _(event):
                         return
                 except:
                     pass
-                hell = await bot.send_message(event.chat_id, f"/protecc@loli_harem_bot {text}")
+                speedo = await bot.send_message(event.chat_id, f"/protecc@loli_harem_bot {text}")
                 await sleep(2)
-                await hell.delete()
+                await speedo.delete()
                 os.remove(dl)
             except:
                 pass

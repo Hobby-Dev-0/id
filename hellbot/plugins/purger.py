@@ -95,7 +95,7 @@ CmdHelp("purger").add_command(
 ).add_command(
   "purgeme", "<no.of msgs>", "Purges the required number of your messages", "purgeme 100"
 ).add_command(
-  "sd", "<time> <text>", "Sends a self destruct text. Fill time in secs", "sd 10 hello"
+  "sd", "<time> <text>", "Sends a self destruct text. Fill time in secs", "sd 10 speedoo"
 ).add_command(
   "del", "<reply>", "Deletes the replied msg."
 ).add_info(

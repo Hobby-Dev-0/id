@@ -26,20 +26,20 @@ async def spammer(e):
 
 @bot.on(Speedo_cmd(pattern="bigspam"))
 @bot.on(sudo_cmd(pattern="bigspam", allow_sudo=True))
-async def bigspam(hell):
-    if not hell.text[0].isalpha() and hell.text[0] not in ("/", "#", "@", "!"):
-        hell_msg = hell.text
-        Speedo_count = int(hell_msg[9:13])
-        reply_msg = await hell.get_reply_message()
+async def bigspam(speedo):
+    if not speedo.text[0].isalpha() and speedo.text[0] not in ("/", "#", "@", "!"):
+        speedo_msg = speedo.text
+        Speedo_count = int(speedo_msg[9:13])
+        reply_msg = await speedo.get_reply_message()
         if reply_msg:
-            hell_spam = reply_msg
+            speedo_spam = reply_msg
         else:
-            hell_spam = str(hell.text[13:])
+            speedo_spam = str(speedo.text[13:])
         for i in range(1, Speedo_count):
-            await hell.respond(hell_spam)
-        await hell.delete()
-        await hell.client.send_message(
-                lg_id, f"#BIGSPAM \n\nBigspammed  `{hell_count}`  messages !!"
+            await speedo.respond(speedo_spam)
+        await speedo.delete()
+        await speedo.client.send_message(
+                lg_id, f"#BIGSPAM \n\nBigspammed  `{speedo_count}`  messages !!"
         )
 
 
@@ -62,11 +62,11 @@ async def spammer(e):
 @bot.on(sudo_cmd(pattern="uspam ?(.*)", allow_sudo=True))
 async def _(event):
     reply_msg = await event.get_reply_message()
-    hell = event.pattern_match.group(1)
+    speedo = event.pattern_match.group(1)
     if reply_msg:
         input_str = reply_msg
     else:
-        input_str = hell
+        input_str = speedo
     await bot.send_message(lg_id, f"#UNLIMITED_SPAM \n\nStarted Unlimited Spam. Will spam till floodwait. Do `{hl}restart` to stop.")
     x = 0
     while x < 69:

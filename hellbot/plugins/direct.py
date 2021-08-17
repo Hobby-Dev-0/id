@@ -16,7 +16,7 @@ from . import *
 async def direct_link_generator(request):
     if request.fwd_from:
         return
-    hellevent = await edit_or_reply(request, "`Processing...`")
+    speedoevent = await edit_or_reply(request, "`Processing...`")
     textx = await request.get_reply_message()
     message = request.pattern_match.group(1)
     if message:
@@ -24,13 +24,13 @@ async def direct_link_generator(request):
     elif textx:
         message = textx.text
     else:
-        await hellevent.edit("`Usage: .direct <url>`")
+        await speedoevent.edit("`Usage: .direct <url>`")
         return
     reply = ""
     links = re.findall(r"\bhttps?://.*\.\S+", message)
     if not links:
         reply = "`No links found!`"
-        await hellevent.edit(reply)
+        await speedoevent.edit(reply)
     for link in links:
         if "drive.google.com" in link:
             reply += gdrive(link)
@@ -54,7 +54,7 @@ async def direct_link_generator(request):
             reply += androidfilehost(link)
         else:
             reply += re.findall(r"\bhttps?://(.*?[^/]+)", link)[0] + "is not supported"
-    await hellevent.edit(reply)
+    await speedoevent.edit(reply)
 
 
 def gdrive(url: str) -> str:

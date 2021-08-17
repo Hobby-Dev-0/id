@@ -77,7 +77,7 @@ async def morning(e):
 async def quote_search(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "`Processing...`")
+    speedo = await eor(event, "`Processing...`")
     input_str = event.pattern_match.group(1)
     if not input_str:
         api_url = "https://quotes.cwprojects.live/random"
@@ -92,9 +92,9 @@ async def quote_search(event):
         except:
             response = None
     if response is not None:
-        await hell.edit(f"`{response['text']}`")
+        await speedo.edit(f"`{response['text']}`")
     else:
-        await eod(hell, "`Sorry Zero results found`")
+        await eod(speedo, "`Sorry Zero results found`")
 
 
 CmdHelp("quotes").add_command(

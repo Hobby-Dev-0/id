@@ -18,13 +18,13 @@ if not os.path.isdir("./temp"):
 
 @bot.on(Speedo_cmd(pattern="stoi$"))
 @bot.on(sudo_cmd(pattern="stoi$", allow_sudo=True))
-async def _(hell):
-    if hell.fwd_from:
+async def _(speedo):
+    if speedo.fwd_from:
         return
-    reply_to_id = hell.message.id
-    if hell.reply_to_msg_id:
-        reply_to_id = hell.reply_to_msg_id
-    event = await eor(hell, "Converting.....")
+    reply_to_id = speedo.message.id
+    if speedo.reply_to_msg_id:
+        reply_to_id = speedo.reply_to_msg_id
+    event = await eor(speedo, "Converting.....")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
@@ -33,11 +33,11 @@ async def _(hell):
         reply_message = await event.get_reply_message()
         to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
         downloaded_file_name = os.path.join(to_download_directory, file_name)
-        downloaded_file_name = await hell.client.download_media(
+        downloaded_file_name = await speedo.client.download_media(
             reply_message, downloaded_file_name
         )
         if os.path.exists(downloaded_file_name):
-            caat = await hell.client.send_file(
+            caat = await speedo.client.send_file(
                 event.chat_id,
                 downloaded_file_name,
                 force_document=False,
@@ -53,13 +53,13 @@ async def _(hell):
 
 @bot.on(Speedo_cmd(pattern="itos$"))
 @bot.on(sudo_cmd(pattern="itos$", allow_sudo=True))
-async def _(hell):
-    if hell.fwd_from:
+async def _(speedo):
+    if speedo.fwd_from:
         return
-    reply_to_id = hell.message.id
-    if hell.reply_to_msg_id:
-        reply_to_id = hell.reply_to_msg_id
-    event = await eor(hell, "Converting.....")
+    reply_to_id = speedo.message.id
+    if speedo.reply_to_msg_id:
+        reply_to_id = speedo.reply_to_msg_id
+    event = await eor(speedo, "Converting.....")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
@@ -68,11 +68,11 @@ async def _(hell):
         reply_message = await event.get_reply_message()
         to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
         downloaded_file_name = os.path.join(to_download_directory, file_name)
-        downloaded_file_name = await hell.client.download_media(
+        downloaded_file_name = await speedo.client.download_media(
             reply_message, downloaded_file_name
         )
         if os.path.exists(downloaded_file_name):
-            caat = await hell.client.send_file(
+            caat = await speedo.client.send_file(
                 event.chat_id,
                 downloaded_file_name,
                 force_document=False,
@@ -154,31 +154,31 @@ async def on_file_to_photo(event):
 async def _(event):
     if event.fwd_from:
         return
-    hellreply = await event.get_reply_message()
-    if not hellreply or not hellreply.media or not hellreply.media.document:
+    speedoreply = await event.get_reply_message()
+    if not speedoreply or not speedoreply.media or not speedoreply.media.document:
         return await edit_or_reply(event, "`Stupid!, This is not animated sticker.`")
-    if hellreply.media.document.mime_type != "application/x-tgsticker":
+    if speedoreply.media.document.mime_type != "application/x-tgsticker":
         return await edit_or_reply(event, "`Stupid!, This is not animated sticker.`")
     reply_to_id = event.message
     if event.reply_to_msg_id:
         reply_to_id = await event.get_reply_message()
     chat = "@tgstogifbot"
-    hellevent = await edit_or_reply(event, "`Converting to gif ...`")
+    speedoevent = await edit_or_reply(event, "`Converting to gif ...`")
     async with bot.conversation(chat) as conv:
         try:
             await silently_send_message(conv, "/start")
-            await bot.send_file(chat, hellreply.media)
+            await bot.send_file(chat, speedoreply.media)
             response = await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
             if response.text.startswith("Send me an animated sticker!"):
-                return await hellevent.edit("`This file is not supported`")
-            hellresponse = response if response.media else await conv.get_response()
+                return await speedoevent.edit("`This file is not supported`")
+            speedoresponse = response if response.media else await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
-            hellfile = Path(await event.client.download_media(hellresponse, "./temp/"))
-            hellgif = Path(await unzip(hellfile))
+            speedofile = Path(await event.client.download_media(speedoresponse, "./temp/"))
+            speedogif = Path(await unzip(speedofile))
             kraken = await bot.send_file(
                 event.chat_id,
-                hellgif,
+                speedogif,
                 support_streaming=True,
                 force_document=False,
                 reply_to=reply_to_id,
@@ -193,12 +193,12 @@ async def _(event):
                     unsave=True,
                 )
             )
-            await hellevent.delete()
-            for files in (hellgif, hellfile):
+            await speedoevent.delete()
+            for files in (speedogif, speedofile):
                 if files and os.path.exists(files):
                     os.remove(files)
         except YouBlockedUserError:
-            await hellevent.edit("Unblock @tgstogifbot")
+            await speedoevent.edit("Unblock @tgstogifbot")
             return
 
 

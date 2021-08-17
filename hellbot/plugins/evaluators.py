@@ -17,15 +17,15 @@ async def _(event):
     cmd = "".join(event.text.split(maxsplit=1)[1:])
     if not cmd:
         return await eod(event, "`What should i execute?..`")
-    hellevent = await eor(event, "`Executing.....`")
-    process = await asyncio.create_subprocess_shell(
+    speedoevent = await eor(event, "`Executing.....`")
+    process = await asyncio.create_subprocess_sspeedo(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
     result = str(stdout.decode().strip()) + str(stderr.decode().strip())
-    helluser = await event.client.get_me()
-    if helluser.username:
-        curruser = helluser.username
+    speedouser = await event.client.get_me()
+    if speedouser.username:
+        curruser = speedouser.username
     else:
         curruser = "Speedo"
     uid = os.geteuid()
@@ -46,7 +46,7 @@ async def _(event):
         cmd = "".join(event.text.split(maxsplit=1)[1:])
         if not cmd:
             return await eod(event, "`What should i run ?..`")
-        hellevent = await eor(event, "`Running ...`")
+        speedoevent = await eor(event, "`Running ...`")
         old_stderr = sys.stderr
         old_stdout = sys.stdout
         redirected_output = sys.stdout = io.StringIO()
@@ -70,7 +70,7 @@ async def _(event):
         else:
             evaluation = "Success"
         final_output = f"•  Eval : \n`{cmd}` \n\n•  Result : \n`{evaluation}` \n"
-        await eor(hellevent, final_output, deflink=True, linktext="**Eval Command Executed !!** \n\n__See Result__ : ")
+        await eor(speedoevent, final_output, deflink=True, linktext="**Eval Command Executed !!** \n\n__See Result__ : ")
     else:
         await eod(event, "Eval Is Disbaled !!")
 
@@ -99,7 +99,7 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     time.time() + PROCESS_RUN_TIME
-    process = await asyncio.create_subprocess_shell(
+    process = await asyncio.create_subprocess_sspeedo(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()

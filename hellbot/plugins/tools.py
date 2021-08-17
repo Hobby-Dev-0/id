@@ -33,7 +33,7 @@ async def _(event):
     if reply_message.sender.bot:
         await eod(event, "Reply to actual users message.")
         return
-    hellevent = await eor(event, " `Scanning This media..... wait👀`")
+    speedoevent = await eor(event, " `Scanning This media..... wait👀`")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -42,19 +42,19 @@ async def _(event):
             await event.client.forward_messages(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await eod(hellevent, "`Please unblock `@DrWebBot `and try again`")
+            await eod(speedoevent, "`Please unblock `@DrWebBot `and try again`")
             return
         if response.text.startswith("Forward"):
-            await eod(hellevent,
+            await eod(speedoevent,
                 "Can you kindly disable your forward privacy settings for good?"
             )
         else:
             if response.text.startswith("Select"):
-                await eod(hellevent,
+                await eod(speedoevent,
                     "`Please go to` @DrWebBot `and select your language.`"
                 )
             else:
-                await hellevent.edit(
+                await speedoevent.edit(
                     f"**Antivirus scan was completed. I got the final results.**\n\n {response.message.message}"
                 )
 
@@ -101,7 +101,7 @@ async def parseqr(qr_e):
 async def _(event):
     if event.fwd_from:
         return
-    hellevent = await eor(event, "...")
+    speedoevent = await eor(event, "...")
     start = datetime.datetime.now()
     input_str = event.pattern_match.group(1)
     message = f"SYNTAX: `{hl}barcode <long text to include>`"
@@ -139,13 +139,13 @@ async def _(event):
         )
         os.remove(filename)
     except Exception as e:
-        await hellevent.edit(str(e))
+        await speedoevent.edit(str(e))
         return
     end = datetime.datetime.now()
     ms = (end - start).seconds
-    await hellevent.edit("Created BarCode in {} seconds🤓".format(ms))
+    await speedoevent.edit("Created BarCode in {} seconds🤓".format(ms))
     await asyncio.sleep(5)
-    await hellevent.delete()
+    await speedoevent.delete()
 
 
 @bot.on(Speedo_cmd(pattern=r"makeqr(?: |$)([\s\S]*)", outgoing=True))
@@ -194,7 +194,7 @@ async def _(event):
         return
     start = datetime.datetime.now()
     input_str = event.pattern_match.group(1)
-    hell = await eor(event, "Processing...")
+    speedo = await eor(event, "Processing...")
     input_sgra = input_str.split(".")
     if len(input_sgra) == 3:
         yyyy = input_sgra[0]
@@ -211,9 +211,9 @@ async def _(event):
             a = json.dumps(current_date_detail_arraays, sort_keys=True, indent=4)
         else:
             a = response_content["error"]
-        await hell.edit(str(a))
+        await speedo.edit(str(a))
     else:
-        await eod(hell, f"SYNTAX: {hl}calendar YYYY.MM.DD")
+        await eod(speedo, f"SYNTAX: {hl}calendar YYYY.MM.DD")
     end = datetime.datetime.now()
     (end - start).seconds
 
@@ -305,16 +305,16 @@ async def _(event):
             return False
         else:
             im = Image.new(mode="RGB", size=(1280, 720), color=usercolor)
-            im.save("hell.png", "PNG")
+            im.save("speedo.png", "PNG")
             input_str = input_str.replace("#", "#COLOR_")
             await event.client.send_file(
                 event.chat_id,
-                "hell.png",
+                "speedo.png",
                 force_document=False,
                 caption=input_str,
                 reply_to=message_id,
             )
-            os.remove("hell.png")
+            os.remove("speedo.png")
             await event.delete()
     else:
         await eod(
@@ -327,7 +327,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    hellevent = await eor(event, "`processiong...`")
+    speedoevent = await eor(event, "`processiong...`")
     input_str = event.pattern_match.group(1)
     xkcd_id = None
     if input_str:
@@ -364,9 +364,9 @@ Month: {}
 Year: {}""".format(
             img, input_str, xkcd_link, safe_title, alt, day, month, year
         )
-        await hellevent.edit(output_str, link_preview=True)
+        await speedoevent.edit(output_str, link_preview=True)
     else:
-        await eod(hellevent, "xkcd n.{} not found!".format(xkcd_id))
+        await eod(speedoevent, "xkcd n.{} not found!".format(xkcd_id))
 
 @bot.on(Speedo_cmd(pattern="dns (.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="dns (.*)", allow_sudo=True))

@@ -20,7 +20,7 @@ async def kraken(ded):
     name = ded.pattern_match.group(1)
     await edit_or_reply(
         ded,
-        f"{hell_mention} --- {name}          \n　　　　　|"
+        f"{speedo_mention} --- {name}          \n　　　　　|"
         "\n　　　　　| \n"
         "　　　　　| \n"
         "　　　　　| \n"
@@ -60,7 +60,7 @@ async def kraken(think):
         return
     name = think.pattern_match.group(1)
     B = (
-        f"**{hell_mention} ~> {name} .\n\n**"
+        f"**{speedo_mention} ~> {name} .\n\n**"
         "⠀⠀⠀⠀⢀⣀⣀⣀\n"
         "⠀⠀⠀⠰⡿⠿⠛⠛⠻⠿⣷\n"
         "⠀⠀⠀⠀⠀⠀⣀⣄⡀⠀⠀⠀⠀⢀⣀⣀⣤⣄⣀⡀\n"
@@ -87,7 +87,7 @@ async def kraken(frogsay):
         return
     name = frogsay.pattern_match.group(1)
     C = (
-        f"**{hell_mention} ~> {name} .\n\n**"
+        f"**{speedo_mention} ~> {name} .\n\n**"
         "⠄⠄⠄⠄⠄⣀⣀⣤⣶⣿⣿⣶⣶⣶⣤⣄⣠⣴⣶⣿⣶⣦⣄⠄\n"
         "⠄⣠⣴⣾⣿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦\n"
         "⢠⠾⣋⣭⣄⡀⠄⠙⠻⣿⣿⡿⠛⠋⠉⠉⠉⠙⠛⠿⣿⣿⣿⣿\n"
@@ -114,7 +114,7 @@ async def kraken(deadfrog):
         return
     name = deadfrog.pattern_match.group(1)
     D = (
-        f"**{hell_mention} ~> {name} .\n\n**"
+        f"**{speedo_mention} ~> {name} .\n\n**"
         "⣿⣿⣿⡇⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n"
         "⣿⣿⣿⡇⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n"
         "⣿⣿⣿⡇⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n"
@@ -518,12 +518,12 @@ async def bluedevildog(dog):
     await edit_or_reply(dog, J)
 
 
-@bot.on(Speedo_cmd(pattern=r"hello$"))
-@bot.on(sudo_cmd(pattern="hello$", allow_sudo=True))
-async def bluedevilhello(hello):
-    if hello.fwd_from:
+@bot.on(Speedo_cmd(pattern=r"speedoo$"))
+@bot.on(sudo_cmd(pattern="speedoo$", allow_sudo=True))
+async def bluedevilspeedoo(speedoo):
+    if speedoo.fwd_from:
         return
-    await edit_or_reply(hello, K)
+    await edit_or_reply(speedoo, K)
 
 
 @bot.on(Speedo_cmd(pattern=r"hmf$"))
@@ -609,7 +609,7 @@ CmdHelp("arts").add_command(
 ).add_command(
   'dog', None, 'Use and see'
 ).add_command(
-  'hello', None, 'Use and see'
+  'speedoo', None, 'Use and see'
 ).add_command(
   'hmf', None, 'Use and see'
 ).add_command(

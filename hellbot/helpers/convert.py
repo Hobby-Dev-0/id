@@ -22,16 +22,16 @@ dwlpath = Config.TMP_DOWNLOAD_DIRECTORY
 
 # make a image
 async def convert_to_image(event, bot):
-    hell = await event.get_reply_message()
+    speedo = await event.get_reply_message()
     if not (
-            hell.gif
-            or hell.audio
-            or hell.voice
-            or hell.video
-            or hell.video_note
-            or hell.photo
-            or hell.sticker
-            or hell.media
+            speedo.gif
+            or speedo.audio
+            or speedo.voice
+            or speedo.video
+            or speedo.video_note
+            or speedo.photo
+            or speedo.sticker
+            or speedo.media
     ):
         await eor(event, "`Format Not Supported.`")
         return
@@ -39,7 +39,7 @@ async def convert_to_image(event, bot):
         try:
             c_time = time.time()
             downloaded_file_name = await bot.download_media(
-                hell.media,
+                speedo.media,
                 dwlpath,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, event, c_time, "`Downloading...`")
@@ -54,16 +54,16 @@ async def convert_to_image(event, bot):
     if not os.path.exists(downloaded_file_name):
         await eor(event, "Download Unsucessfull :(")
         return
-    if hell and hell.photo:
-        hell_final = downloaded_file_name
-    elif hell.sticker and hell.sticker.mime_type == "application/x-tgsticker":
+    if speedo and speedo.photo:
+        speedo_final = downloaded_file_name
+    elif speedo.sticker and speedo.sticker.mime_type == "application/x-tgsticker":
         rpath = downloaded_file_name
         image_name20 = os.path.join(dwlpath, "omk.png")
         cmd = f"lottie_convert.py --frame 0 -if lottie -of png {downloaded_file_name} {image_name20}"
         stdout, stderr = (await runcmd(cmd))[:2]
         os.remove(rpath)
-        hell_final = image_name20
-    elif hell.sticker and hell.sticker.mime_type == "image/webp":
+        speedo_final = image_name20
+    elif speedo.sticker and speedo.sticker.mime_type == "image/webp":
         pathofsticker2 = downloaded_file_name
         image_new_path = dwlpath + "image.png"
         im = Image.open(pathofsticker2)
@@ -71,8 +71,8 @@ async def convert_to_image(event, bot):
         if not os.path.exists(image_new_path):
             await eor(event, "`Unable To Fetch Shot.`")
             return
-        hell_final = image_new_path
-    elif hell.audio:
+        speedo_final = image_new_path
+    elif speedo.audio:
         omk_p = downloaded_file_name
         hmmyes = dwlpath + "semx.mp3"
         imgpath = dwlpath + "semxy.jpg"
@@ -82,8 +82,8 @@ async def convert_to_image(event, bot):
         if not os.path.exists(imgpath):
             await eor(event, "`Unable To Fetch Shot.`")
             return
-        hell_final = imgpath
-    elif hell.gif or hell.video or hell.video_note:
+        speedo_final = imgpath
+    elif speedo.gif or speedo.video or speedo.video_note:
         omk_p2 = downloaded_file_name
         jpg_file = os.path.join(dwlpath, "image.jpg")
         await take_screen_shot(omk_p2, 0, jpg_file)
@@ -91,8 +91,8 @@ async def convert_to_image(event, bot):
         if not os.path.exists(jpg_file):
             await eor(event, "`Couldn't Fetch shot`")
             return
-        hell_final = jpg_file
-    return hell_final
+        speedo_final = jpg_file
+    return speedo_final
 
 
 async def take_ss(

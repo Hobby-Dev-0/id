@@ -20,7 +20,7 @@ async def _(event):
         return
     if not event.reply_to_msg_id:
         return await eod(event, "Reply to a image...")
-    hell = await eor(event, "`Converting To thug Image..`")
+    speedo = await eor(event, "`Converting To thug Image..`")
     await event.get_reply_message()
     img = await convert_to_image(event, bot)
     imagePath = img
@@ -40,7 +40,7 @@ async def _(event):
     ok = dwllpath + "/" + file_name
     background.save(ok, "PNG")
     await bot.send_file(event.chat_id, ok)
-    await hell.delete()
+    await speedo.delete()
     for files in (ok, img):
         if files and os.path.exists(files):
             os.remove(files)
@@ -117,7 +117,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    hell = await eor(event, "`Making a youthuub comment...`")
+    speedo = await eor(event, "`Making a youthuub comment...`")
     owo = await event.get_reply_message()
     senderr = await event.client(GetFullUserRequest(owo.sender_id))
     if not senderr.profile_photo:
@@ -137,7 +137,7 @@ async def _(event):
     r = requests.get(doit)
     open("ytc.png", "wb").write(r.content)
     lolbruh = "ytc.png"
-    await hell.delete()
+    await speedo.delete()
     await bot.send_file(
         event.chat_id, lolbruh, reply_to=owo
     )

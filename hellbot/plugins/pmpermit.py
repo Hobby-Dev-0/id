@@ -18,7 +18,7 @@ HELL_ZERO = "Go get some sleep retard. \n\n**Blocked !!**"
 HELL_FIRST = (
     "**🔥 Hêllẞø† Prîvã†é Sêçürïty Prø†öçõl 🔥**\n\nThis is to inform you that "
     "{} is currently unavailable.\nThis is an automated message.\n\n"
-    "{}\n\n**Please Choose Why You Are Here!!**".format(hell_mention, CSTM_PMP)
+    "{}\n\n**Please Choose Why You Are Here!!**".format(speedo_mention, CSTM_PMP)
 )
 
 @bot.on(Speedo_cmd(pattern="block$"))
