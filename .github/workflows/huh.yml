@@ -19,9 +19,9 @@ jobs:
 
         with:
 
-          find: "hell_cmd"
+          find: "hell"
 
-          replace: "Speedo_cmd"
+          replace: "speedo"
 
       - name: Create Pull Request
 
